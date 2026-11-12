@@ -16,7 +16,7 @@ export const curso = {
     "Organizar Proyectos con materiales e instrucciones.",
     "Crear skills reutilizables.",
     "Instalar y usar plugins y conectores para conectar ChatGPT/Codex con Drive, Slack, Notion, etc.",
-    "Diseñar agentes (GPTs y Codex).",
+    "Diseñar asistentes y agentes (plugins de ChatGPT y agentes Codex).",
     "Aplicar criterios éticos y de privacidad.",
   ],
 };
@@ -45,7 +45,7 @@ export const modulos: Modulo[] = [
     objetivo: "Situar el curso en el marco normativo y aclarar qué es cada herramienta.",
     contenidos: [
       "LOMLOE y competencias digitales docentes.",
-      "Diferencias entre ChatGPT, Codex y GPTs.",
+      "Diferencias entre ChatGPT, Codex y plugins (los GPTs personalizados se están retirando).",
       "Plugins vs conectores vs MCP vs skills.",
       "Ética y privacidad.",
     ],
@@ -178,20 +178,26 @@ export const modulos: Modulo[] = [
     numero: 6,
     titulo: "Agentes y uso avanzado de plugins/conectores",
     duracion: "3,5 h",
-    objetivo: "Diseñar agentes (GPTs o Codex) y conectarlos a servicios reales mediante plugins/conectores para automatizar tareas de coordinación.",
+    objetivo: "Diseñar asistentes a medida (plugins de ChatGPT) y agentes Codex, y conectarlos a servicios reales para automatizar tareas de docencia y coordinación.",
     contenidos: [
-      "GPTs personalizados: instrucciones, base de conocimiento, conversation starters.",
+      "Plugins como asistentes a medida: sustituyen a los GPTs personalizados, que OpenAI está retirando. La skill aporta las instrucciones y los archivos de referencia; la conexión (app) aporta el acceso a Drive u otros servicios.",
+      "Los plugins funcionan en ChatGPT (web, escritorio y móvil) y en Codex. Para compartirlos con el equipo se publican en un marketplace del espacio de trabajo.",
+      "Si ya tenías un GPT, OpenAI ofrece migrarlo a plugin: sus instrucciones pasan a una skill. Consulta las condiciones en el centro de ayuda (enlace en Recursos).",
       "Agentes Codex: instrucciones en AGENTS.md, alcance delimitado y políticas de aprobación.",
       "Un agente Codex puede usar un plugin con conector a Slack para buscar acuerdos de departamento, o a Notion para actualizar un kit de coordinación.",
-      "Un GPT personalizado puede apoyarse en un conector a Google Drive para leer casos prácticos reales.",
+      "Un plugin puede incluir la conexión a una carpeta de Google Drive para leer casos prácticos anonimizados.",
       "Buenas prácticas: definir alcance, limitar permisos, revisar acciones y registrar lo hecho.",
     ],
     ejercicioTitulo: "Ejercicio (itinerario A o B)",
     pasos: [
-      "Itinerario A (GPT): crea un «Simulador de entrevista» (intervención social, atención al cliente, negociación comercial o selección de personal) y, opcionalmente, conéctalo a una carpeta de Drive con casos anonimizados.",
-      "Itinerario B (agente Codex + plugin/conector): crea un agente que, con un plugin conectado a una carpeta de actas (Drive/SharePoint) o a Slack, genere un resumen ejecutivo y una tabla de acuerdos y responsables.",
+      "A1 · Diseña la skill «Simulador de entrevista» para tu ciclo (intervención social, atención al cliente, negociación comercial o selección de personal). Parte de la plantilla de abajo.",
+      "A2 · Añade como archivos de referencia 2–3 casos ficticios o anonimizados (references/casos.md) y la rúbrica de feedback (references/rubrica.md).",
+      "A3 · Empaquétala en un plugin (con la herramienta de Codex o a mano) y, opcionalmente, añade la conexión a una carpeta de Drive con casos anonimizados.",
+      "A4 · Pruébalo en ChatGPT con una entrevista completa y comprueba que el personaje no se sale del papel y que el feedback sigue la rúbrica.",
+      "B · Agente Codex con plugin y conexión: crea un agente que, con un plugin conectado a una carpeta de actas (Drive/SharePoint) o a Slack, genere un resumen ejecutivo y una tabla de acuerdos y responsables.",
     ],
-    entregable: "Enlace o captura del GPT o informe del agente + descripción del plugin/conector usado y de sus restricciones.",
+    entregable: "Itinerario A: estructura del plugin y captura de una entrevista de prueba con su feedback. Itinerario B: informe del agente. En ambos, descripción de las conexiones usadas y de sus restricciones.",
+    prompts: [{ titulo: "Plantilla de SKILL.md (itinerario A)", texto: '---\nname: simulador-entrevista\ndescription: Simula una entrevista profesional (intervención social, atención al cliente, negociación comercial o selección de personal) y da feedback con una rúbrica. Úsala cuando alguien quiera practicar una entrevista.\n---\n\n# Simulador de entrevista\n\n## Antes de empezar\nPregunta qué tipo de entrevista quiere practicar, de qué ciclo es y qué caso usar. Si no tiene uno, elige un caso de references/casos.md.\n\n## Durante la entrevista\n- Interpreta solo al personaje del caso (persona usuaria, cliente, proveedor o candidato). No salgas del papel.\n- Responde de forma realista y con la información del caso, sin darla toda de golpe.\n- Una intervención cada vez: espera a que te pregunten.\n- Si escriben «FIN», termina la entrevista.\n\n## Al terminar\nDa feedback con la rúbrica de references/rubrica.md: puntos fuertes, aspectos que mejorar citando frases concretas de la entrevista y una puntuación por criterio.\n\n## Límites\n- Usa solo casos ficticios o anonimizados.\n- Si alguien introduce datos reales de una persona, avísale y no los utilices.' }],
     apoyo: [{ href: "/privacidad", texto: "Antes de conectar una carpeta real: semáforo de privacidad" }],
   },
   {
@@ -209,7 +215,7 @@ export const modulos: Modulo[] = [
     pasos: [
       "Proyecto configurado (con o sin conector).",
       "Una skill.",
-      "Un agente (GPT o Codex) que use un plugin/conector.",
+      "Un plugin propio o un agente Codex que use una conexión a un servicio.",
       "Reflexión ética sobre datos.",
     ],
     entregable: "Documento de 2–3 páginas con el kit y el plan.",
@@ -217,12 +223,12 @@ export const modulos: Modulo[] = [
 ];
 
 export const herramientasBase = [
-  { n: "ChatGPT", q: "Asistente conversacional", u: "Redacción, análisis, proyectos, GPTs", m: "1–6" },
+  { n: "ChatGPT", q: "Asistente conversacional", u: "Redacción, análisis, proyectos, plugins", m: "1–6" },
   { n: "Codex", q: "Agente de archivos y automatización", u: "Organizar documentación, informes, tareas repetitivas", m: "1, 2, 4, 5, 6" },
   { n: "Proyectos ChatGPT", q: "Espacio con chats, archivos e instrucciones", u: "Centralizar materiales de asignatura/coordinación", m: "3, 5" },
-  { n: "GPTs personalizados", q: "ChatGPT con instrucciones y base propia", u: "Tutor, simulador, asistente de coordinación", m: "6" },
+  { n: "GPTs personalizados", q: "En retirada: OpenAI los migra a plugins", u: "Solo para migrar los que ya tengas", m: "6" },
   { n: "Skills", q: "Instrucciones empaquetadas reutilizables", u: "Rúbricas, lectura fácil, revisión de programaciones", m: "4" },
-  { n: "Plugins", q: "Paquetes instalables que agrupan skills, conectores y MCP", u: "Distribuir flujos completos al equipo", m: "1, 4, 6" },
+  { n: "Plugins", q: "Paquetes instalables que agrupan skills, conectores y MCP", u: "Crear asistentes a medida (simulador, tutor) y distribuir flujos completos al equipo", m: "1, 4, 6" },
   { n: "Conectores", q: "Integraciones con apps externas (Drive, Slack, Notion…)", u: "Leer y actuar sobre documentos reales del centro", m: "1, 3, 6" },
   { n: "Servidores MCP", q: "Protocolo subyacente de conexión", u: "Base técnica de los conectores", m: "1, 4" },
   { n: "config.toml", q: "Configuración de Codex", u: "Modelo por defecto, aprobaciones, sandbox", m: "1" },
@@ -271,8 +277,8 @@ export const glosario = [
   },
   {
     t: "GPT personalizado",
-    d: "Versión de ChatGPT con instrucciones, base de conocimiento y conversation starters propios.",
-    e: "«Simulador de negociación con un cliente internacional».",
+    d: "En retirada. Versión de ChatGPT con instrucciones, base de conocimiento y conversation starters propios. OpenAI los está migrando a plugins: las instrucciones pasan a una skill.",
+    e: "Un GPT «Simulador de negociación» que se migra a un plugin con la skill «simulador-entrevista».",
   },
   {
     t: "AGENTS.md",
