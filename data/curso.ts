@@ -33,6 +33,7 @@ export type Modulo = {
   pasos: string[];
   prompts?: { titulo: string; texto: string }[];
   entregable: string;
+  apoyo?: { href: string; texto: string }[];
 };
 
 export const modulos: Modulo[] = [
@@ -52,6 +53,7 @@ export const modulos: Modulo[] = [
     ejercicioTitulo: "Actividad de arranque",
     pasos: ["Escribe una tarea de tu trabajo que quieras automatizar o mejorar con IA."],
     entregable: "Tarea a automatizar o mejorar, compartida con el grupo.",
+    apoyo: [{ href: "/privacidad", texto: "Semáforo de privacidad: ¿puedo meter este dato en la IA?" }],
   },
   {
     slug: "modulo-1",
@@ -79,8 +81,8 @@ export const modulos: Modulo[] = [
           "Actúa como asistente de coordinación académica de FP de Grado Superior en Ciencias Sociales. Usa lenguaje técnico pero accesible, cita normativa cuando corresponda y evita inventar datos.",
       },
       {
-        titulo: "Fragmento de config.toml (orientativo)",
-        texto: 'model = "gpt-5"\napproval_policy = "on-request"\nsandbox_mode = "workspace-write"',
+        titulo: "Fragmento de ~/.codex/config.toml (orientativo)",
+        texto: 'model = "NOMBRE-DEL-MODELO"   # el que muestre Codex en tu cuenta\napproval_policy = "on-request"\nsandbox_mode = "workspace-write"',
       },
     ],
     entregable: "Captura de la instrucción personalizada, del fragmento de config.toml y del plugin/conector activado.",
@@ -169,6 +171,7 @@ export const modulos: Modulo[] = [
       "Revisa y entrega la versión final.",
     ],
     entregable: "Banco de ítems + plan de revisión + versión final.",
+    apoyo: [{ href: "/generador", texto: "Generador de prompts (plantilla «Generar un banco de ítems»)" }],
   },
   {
     slug: "modulo-6",
@@ -189,6 +192,7 @@ export const modulos: Modulo[] = [
       "Itinerario B (agente Codex + plugin/conector): crea un agente que, con un plugin conectado a una carpeta de actas (Drive/SharePoint) o a Slack, genere un resumen ejecutivo y una tabla de acuerdos y responsables.",
     ],
     entregable: "Enlace o captura del GPT o informe del agente + descripción del plugin/conector usado y de sus restricciones.",
+    apoyo: [{ href: "/privacidad", texto: "Antes de conectar una carpeta real: semáforo de privacidad" }],
   },
   {
     slug: "modulo-7",
@@ -296,11 +300,23 @@ export const etica = [
   "Documentar en programaciones y actas qué tareas se han asistido con IA y con qué plugins/conectores.",
 ];
 
-export const recursos = [
-  { t: "OpenAI Help Center", d: "Migración a plugins y composición de un plugin (skills + apps + plantillas)." },
-  { t: "Documentación de Codex sobre plugins", d: "Paquetes con skills, conectores de aplicaciones y servidores MCP." },
-  { t: "Guía de Zapier (2026)", d: "Diferencia entre conector, plugin y servidor MCP." },
-  { t: "DragApp (2026)", d: "Tabla terminológica MCP server / connector / plugin / skill." },
-  { t: "OpenAI Academy", d: "«Codex for Faculty and Researchers»: fórmula de prompt y study kits." },
-  { t: "Documentación oficial", d: "config.toml y AGENTS.md." },
+export type Recurso = { t: string; d: string; url: string; grupo: string; comprobado: boolean };
+
+export const recursos: Recurso[] = [
+  { grupo: "Documentación oficial de Codex y ChatGPT", t: "Plugins", d: "Qué es un plugin y qué agrupa: skills, servidores MCP y conexiones a apps externas.", url: "https://learn.chatgpt.com/docs/plugins", comprobado: true },
+  { grupo: "Documentación oficial de Codex y ChatGPT", t: "Skills", d: "Cómo crear una skill: una carpeta con SKILL.md y, si hace falta, scripts y referencias.", url: "https://learn.chatgpt.com/docs/build-skills", comprobado: true },
+  { grupo: "Documentación oficial de Codex y ChatGPT", t: "config.toml", d: "Configuración de Codex (~/.codex/config.toml): modelo, approval_policy y sandbox_mode.", url: "https://learn.chatgpt.com/docs/config-file/config-basic", comprobado: true },
+  { grupo: "Documentación oficial de Codex y ChatGPT", t: "AGENTS.md", d: "Instrucciones que Codex lee antes de trabajar, a nivel global o de proyecto.", url: "https://learn.chatgpt.com/docs/agent-configuration/agents-md", comprobado: true },
+  { grupo: "Centro de ayuda de OpenAI", t: "Apps (antes «conectores») en ChatGPT", d: "Conectar Drive, Slack, Notion y otros servicios.", url: "https://help.openai.com/en/articles/11487775-connectors-in-chatgpt", comprobado: false },
+  { grupo: "Centro de ayuda de OpenAI", t: "Proyectos en ChatGPT", d: "Crear un proyecto, añadir archivos e instrucciones.", url: "https://help.openai.com/en/articles/10169521-projects-in-chatgpt", comprobado: false },
+  { grupo: "Centro de ayuda de OpenAI", t: "Retirada de los GPTs y migración a plugins", d: "Calendario y qué se conserva al pasar un GPT a plugin.", url: "https://help.openai.com/en/articles/20001519", comprobado: false },
+  { grupo: "Formación y estándares", t: "OpenAI Academy: Codex for Faculty and Researchers", d: "Guía de la sesión de junio de 2026: convertir materiales de curso en un kit de estudio.", url: "https://academy.openai.com/en/public/clubs/higher-education-05x4z/resources/codex-for-faculty-and-researchers-follow-along-guide-2026-06-09", comprobado: true },
+  { grupo: "Formación y estándares", t: "Model Context Protocol (MCP)", d: "Sitio oficial del estándar abierto que hay debajo de los conectores.", url: "https://modelcontextprotocol.io", comprobado: true },
+  { grupo: "Formación y estándares", t: "DragApp: MCP server vs connector vs plugin vs skill", d: "Artículo divulgativo (agosto de 2026) con definiciones de los cuatro términos. Es de una empresa que vende servidores MCP.", url: "https://www.dragapp.com/blog/mcp-server-vs-connector-vs-plugin-vs-skill/", comprobado: true },
+];
+
+export const notasVigencia = [
+  "Los «conectores» de ChatGPT se llaman ahora «apps», y desde julio de 2026 el directorio de apps forma parte del directorio de plugins.",
+  "OpenAI está retirando los GPTs personalizados: según su centro de ayuda, se migran a plugins y las cuentas personales ya no pueden crear GPTs nuevos.",
+  "«GPT-5» ya no es el modelo más reciente. Usa el modelo que te ofrezcan ChatGPT y Codex en tu cuenta.",
 ];

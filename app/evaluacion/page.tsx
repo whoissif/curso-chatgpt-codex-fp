@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { evaluacion, etica } from "@/data/curso";
 
@@ -21,6 +22,7 @@ export default function Evaluacion() {
       <section className="bloque aviso">
         <h2>Ética y privacidad (transversal)</h2>
         <ul className="lista-check">{etica.map((x) => <li key={x}>{x}</li>)}</ul>
+        <p className="apoyo"><Link href="/privacidad" className="btn btn-sec">Semáforo de privacidad →</Link></p>
       </section>
     </>
   );

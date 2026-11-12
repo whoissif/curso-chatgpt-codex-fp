@@ -11,7 +11,8 @@ export default function Inicio() {
         <p className="lead">{curso.objetivoGeneral}</p>
         <div className="acciones">
           <Link className="btn" href="/modulos">Empezar los módulos</Link>
-          <Link className="btn btn-sec" href="/glosario">¿Plugin, conector, MCP o skill?</Link>
+          <Link className="btn btn-sec" href="/generador">Generador de prompts</Link>
+          <Link className="btn btn-sec" href="/privacidad">¿Puedo meter este dato en la IA?</Link>
         </div>
       </section>
 

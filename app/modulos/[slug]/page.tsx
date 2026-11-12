@@ -46,6 +46,11 @@ export default async function Modulo({ params }: P) {
         <h2>{m.ejercicioTitulo}</h2>
         <Checklist slug={m.slug} pasos={m.pasos} />
         {m.prompts?.map((p) => <CopiarPrompt key={p.titulo} titulo={p.titulo} texto={p.texto} />)}
+        {m.apoyo && (
+          <p className="apoyo">
+            {m.apoyo.map((a) => <Link key={a.href} href={a.href} className="btn btn-sec">{a.texto} →</Link>)}
+          </p>
+        )}
       </section>
 
       <section className="bloque entregable">

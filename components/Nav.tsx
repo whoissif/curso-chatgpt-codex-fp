@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 const links = [
   { href: "/", t: "Inicio" },
   { href: "/modulos", t: "Módulos" },
+  { href: "/generador", t: "Generador de prompts" },
+  { href: "/privacidad", t: "Privacidad" },
   { href: "/herramientas", t: "Herramientas" },
   { href: "/glosario", t: "Glosario" },
   { href: "/evaluacion", t: "Evaluación y ética" },
