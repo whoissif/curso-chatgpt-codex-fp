@@ -8,7 +8,7 @@ export default function Privacidad() {
     <>
       <h1 className="titulo-pag">¿Puedo meter este dato en la IA?</h1>
       <p className="lead">
-        Responde a cinco preguntas antes de subir un documento, conectar una carpeta o pegar un texto en ChatGPT o Codex.
+        Responde a unas preguntas (cuatro o cinco, según el caso) antes de subir un documento, conectar una carpeta o pegar un texto en ChatGPT o Codex.
       </p>
       <Semaforo />
       <section className="bloque aviso">
