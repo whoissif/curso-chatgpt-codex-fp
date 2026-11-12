@@ -258,8 +258,8 @@ export const glosario = [
 ];
 
 export const evaluacion = [
-  { i: "Ejercicios 1–5", p: 40, c: "Completitud, pertinencia al ciclo, reflexión." },
-  { i: "Ejercicio 6 (agente + plugin/conector)", p: 20, c: "Claridad de instrucciones, alcance, utilidad, revisión crítica." },
+  { i: "Entregables de los módulos 1–5", p: 40, c: "Completitud, pertinencia al ciclo, reflexión." },
+  { i: "Entregable del módulo 6 (agente o plugin con conexión)", p: 20, c: "Claridad de instrucciones, alcance, utilidad, revisión crítica." },
   { i: "Proyecto final", p: 30, c: "Coherencia del kit, aplicabilidad, rigor normativo, ética." },
   { i: "Participación y coevaluación", p: 10, c: "Aportaciones y retroalimentación." },
 ];

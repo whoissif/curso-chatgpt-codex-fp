@@ -76,7 +76,7 @@ export const recetasModulo0: Receta[] = [
         titulo: "Distingue ChatGPT de Codex",
         donde: "Arriba de la barra lateral, pulsa «ChatGPT ▾» y elige «Codex». Para volver, pulsa «Codex ▾» y elige «ChatGPT».",
         veras:
-          "El título de la barra lateral cambia a «Codex». ChatGPT es para conversar, redactar y analizar; Codex trabaja con archivos de tu ordenador (módulos 4 a 6). Hasta el módulo 4 usarás siempre ChatGPT, con el selector de arriba en «Chat».",
+          "El título de la barra lateral cambia a «Codex». ChatGPT es para conversar, redactar y analizar; Codex trabaja con archivos de tu ordenador (módulos 4 a 6). Hasta el módulo 4 usarás sobre todo ChatGPT, con el selector de arriba en «Chat». La excepción son dos ajustes del módulo 1, que se hacen en Codex.",
         captura: cap("m0-chatgpt-o-codex.png", "Barra lateral en modo Codex, con «Codex ▾» señalado"),
       },
       {

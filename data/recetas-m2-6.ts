@@ -510,7 +510,7 @@ export const recetasModulo6: Receta[] = [
         titulo: "Comprueba el resultado",
         escribe: "Muéstrame resumen-acuerdos.md.",
         veras:
-          "Una tabla con los acuerdos de las dos actas. Comprueba que la guía de buenas prácticas de octubre aparece «sin asignar» y que la consulta del presupuesto aparece «sin fecha»: son trampas puestas a propósito.",
+          "Una tabla con los acuerdos de las dos actas. Comprueba las trampas puestas a propósito: la consulta del presupuesto aparece «sin fecha»; la guía de buenas prácticas queda «sin asignar» en octubre, pero en noviembre la asume PE para enero (la tabla debe recoger ese cambio); y el acuerdo de PA habla de la «unidad 4», porque el acta de noviembre corrige la de octubre.",
       },
       {
         titulo: "Revisa el registro",
@@ -523,6 +523,11 @@ export const recetasModulo6: Receta[] = [
       { problema: "No encuentra la carpeta de Drive.", solucion: "Escribe el nombre exacto, con el guion y las mayúsculas, y comprueba que el complemento de Drive está conectado." },
       { problema: "Inventa un responsable.", solucion: "Señálale el acuerdo y recuérdale la regla de AGENTS.md. Si se repite, refuerza la regla en el archivo." },
     ],
-    compruebalo: ["resumen-acuerdos.md tiene todos los acuerdos de las dos actas.", "No hay responsables ni fechas inventados.", "registro.md recoge lo que hizo."],
+    compruebalo: [
+      "resumen-acuerdos.md tiene todos los acuerdos de las dos actas.",
+      "No hay responsables ni fechas inventados.",
+      "Aplica la corrección del acta de noviembre (unidad 4, no unidad 3) y la asignación posterior de la guía a PE.",
+      "registro.md recoge lo que hizo.",
+    ],
   },
 ];
