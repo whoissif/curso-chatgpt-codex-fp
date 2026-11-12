@@ -163,186 +163,222 @@ export const recetasModulo0: Receta[] = [
 
 /* ───────────── Módulo 1 · Ajustes iniciales ───────────── */
 
+const PROMPT_AJUSTE = `Objetivo: [qué quieres conseguir].
+Archivo: [ruta del archivo de configuración].
+Cambios: [ajustes y valores exactos].
+Seguridad: antes de tocar nada, haz una copia del archivo con la extensión .bak y no cambies nada más.
+Comprobación: muéstrame el contenido antes y después y explícame cada cambio en una línea.`;
+
+const PROMPT_AGENTS = `Objetivo: que sigas siempre estas instrucciones, en todos mis proyectos.
+Archivo: ~/.codex/AGENTS.md (créalo si no existe).
+Contenido:
+- Actúa como asistente de coordinación académica de FP de Grado Superior en [tu familia profesional y ciclo].
+- Usa lenguaje técnico pero accesible, en español de España.
+- Cita normativa solo si estás seguro; si no lo estás, dilo.
+- No inventes datos. No uses datos personales de alumnado.
+Seguridad: si el archivo ya existe, haz una copia AGENTS.md.bak y añade estas instrucciones al final sin borrar nada.
+Comprobación: muéstrame el archivo final.`;
+
+const PROMPT_CONFIG = `Objetivo: que me pidas permiso antes de acciones delicadas y que solo escribas dentro de la carpeta del proyecto.
+Archivo: ~/.codex/config.toml (créalo si no existe).
+Cambios: approval_policy = "on-request" y sandbox_mode = "workspace-write". No cambies el modelo.
+Seguridad: antes de tocar nada, haz una copia config.toml.bak y no cambies ningún otro ajuste.
+Comprobación: muéstrame el archivo antes y después y explícame qué significa cada ajuste.`;
+
 export const recetasModulo1: Receta[] = [
   {
-    id: "personalizar",
-    titulo: "Dile a ChatGPT quién eres y cómo quieres que responda",
-    paraQue: "Que todas las respuestas tengan en cuenta tu contexto sin repetirlo en cada chat.",
+    id: "prompt-ajuste",
+    titulo: "Aprende el «prompt de ajuste»",
+    paraQue: "Cambiar la configuración de Codex pidiéndoselo por escrito, sin depender de dónde esté cada botón.",
+    tiempo: "10 min",
+    antes: [],
+    pasos: [
+      {
+        titulo: "Entiende la idea",
+        nota:
+          "La configuración de Codex son archivos de texto de tu ordenador. En lugar de buscar menús, le pides a Codex que los cambie. Él te enseña lo que va a hacer y te pide permiso. Si la aplicación cambia de diseño, el prompt sigue funcionando.",
+      },
+      {
+        titulo: "Memoriza sus cinco partes",
+        donde: "Objetivo, archivo, cambios, seguridad y comprobación. Esta es la plantilla que usarás en las dos recetas siguientes:",
+        escribe: PROMPT_AJUSTE,
+      },
+      {
+        titulo: "Entiende por qué Codex te pedirá permiso",
+        nota:
+          "Los archivos de configuración están fuera de tu carpeta de trabajo, así que Codex siempre te pedirá permiso para tocarlos. Lee qué va a cambiar y pulsa Intro para aprobar o Esc para rechazar.",
+        atascado: "Si una petición no coincide con lo que pediste en el prompt, recházala con Esc y explícale qué querías.",
+      },
+      {
+        titulo: "Distingue qué se puede ajustar así",
+        nota:
+          "Por prompt, con Codex: el comportamiento de Codex (config.toml) y sus instrucciones permanentes (AGENTS.md). Solo desde la aplicación: los ajustes de tu cuenta de ChatGPT (entrenamiento, memoria, instrucciones del modo chat), porque se guardan en los servidores de OpenAI y no en tu ordenador.",
+      },
+    ],
+    reto: "Explica con tus palabras las cinco partes del prompt de ajuste y qué ajustes se pueden hacer así y cuáles no.",
+    fallos: [],
+    compruebalo: ["Sabes escribir un prompt de ajuste con sus cinco partes.", "Sabes qué ajustes son de Codex y cuáles de tu cuenta."],
+  },
+  {
+    id: "agents-global",
+    titulo: "Dale a Codex instrucciones permanentes (AGENTS.md)",
+    paraQue: "Que Codex sepa siempre quién eres y cómo quieres que trabaje, sin repetirlo en cada chat.",
     tiempo: "15 min",
     antes: ["La aplicación abierta.", "Saber tu familia profesional y tu ciclo."],
     pasos: [
       {
-        titulo: "Abre la personalización",
-        donde: "Círculo con tus iniciales (abajo a la izquierda) → «Ajustes» → «Personalización».",
-        veras: "Los apartados «Memoria de ChatGPT», «Memoria de Codex» y «Escritura». Las instrucciones personalizadas se abren desde el enlace «instrucciones personalizadas» del apartado «Resumen de memoria».",
-        captura: cap("m1-personalizacion.png", "Ventana de instrucciones personalizadas abierta desde Personalización"),
+        titulo: "Abre un chat de Codex",
+        donde: "Arriba de la barra lateral, cambia a «Codex» y pulsa «Nuevo chat».",
       },
       {
-        titulo: "Activa la personalización si está desactivada",
-        donde: "Si en la ventana de instrucciones ves un interruptor para activarlas, actívalo.",
-        veras: "El interruptor en color y los campos de texto disponibles.",
+        titulo: "Pega el prompt de ajuste",
+        donde: "Cambia lo que va entre corchetes y envíalo:",
+        escribe: PROMPT_AGENTS,
+        veras: "Codex te explica qué va a hacer y te pide permiso para crear o modificar el archivo.",
       },
       {
-        titulo: "Escribe tus instrucciones",
-        donde: "Pega este texto en el campo de instrucciones personalizadas y cambia lo que va entre corchetes.",
-        escribe:
-          "Actúa como asistente de coordinación académica de FP de Grado Superior en [tu familia profesional y ciclo]. Usa lenguaje técnico pero accesible, cita normativa cuando corresponda y evita inventar datos. Si no estás seguro de algo, dilo.",
-        atascado: "En el plan gratuito el campo admite menos caracteres. Si no cabe, quita la última frase.",
-      },
-      {
-        titulo: "Guarda los cambios",
-        donde: "Pulsa «Guardar» si aparece. En algunas versiones se guarda solo al cerrar.",
-        veras: "La ventana se cierra o aparece un aviso de guardado.",
+        titulo: "Lee y aprueba",
+        donde: "Comprueba que solo toca ~/.codex/AGENTS.md (y la copia .bak). Pulsa Intro.",
+        veras: "El contenido final del archivo.",
       },
       {
         titulo: "Comprueba que funciona",
-        donde: "Abre un chat nuevo de ChatGPT y escribe:",
-        escribe: "¿Qué sabes de mí y de cómo quiero que me respondas?",
-        veras: "ChatGPT menciona tu ciclo y el estilo que le has pedido.",
-        captura: cap("m1-prueba-instrucciones.png", "Respuesta de ChatGPT que menciona el ciclo y el estilo"),
+        donde: "Abre otro chat nuevo de Codex y escribe:",
+        escribe: "¿Qué instrucciones permanentes tienes sobre mí y sobre cómo trabajar?",
+        veras: "Codex menciona tu ciclo y tus reglas.",
       },
     ],
-    reto: "Configura las instrucciones personalizadas de ChatGPT con tu rol, tu ciclo y el estilo de respuesta, y comprueba que se aplican.",
+    reto: "Con un prompt de ajuste, crea ~/.codex/AGENTS.md con tu rol, tu ciclo y tus normas, y comprueba que Codex lo aplica.",
     fallos: [
-      { problema: "ChatGPT no tiene en cuenta mis instrucciones.", solucion: "Abre un chat nuevo: los cambios no se aplican a las conversaciones que ya estaban abiertas." },
-      { problema: "No encuentro las instrucciones personalizadas.", solucion: "Escribe «instrucciones» en el buscador que hay arriba de la lista de Ajustes." },
+      { problema: "Codex no tiene en cuenta las instrucciones.", solucion: "Abre un chat nuevo: los chats ya abiertos no lo leen. Si sigue igual, pídele: «Lee ~/.codex/AGENTS.md y dime qué dice»." },
+      { problema: "He borrado algo sin querer.", solucion: "Escribe: «Restaura ~/.codex/AGENTS.md desde AGENTS.md.bak»." },
     ],
-    compruebalo: ["Un chat nuevo responde teniendo en cuenta tu ciclo y el estilo pedido."],
+    compruebalo: ["Un chat nuevo de Codex conoce tu ciclo y tus normas.", "Existe una copia .bak por si algo sale mal."],
   },
   {
-    id: "proteger-datos",
-    titulo: "Protege tus datos",
-    paraQue: "Decidir qué guarda ChatGPT de tus conversaciones y evitar que se usen para entrenar el modelo.",
-    tiempo: "10 min",
+    id: "config-seguridad",
+    titulo: "Configura la seguridad de Codex (config.toml)",
+    paraQue: "Que Codex te pida permiso antes de acciones delicadas y solo escriba dentro de la carpeta del proyecto.",
+    tiempo: "15 min",
+    antes: ["Un chat de Codex abierto."],
+    pasos: [
+      {
+        titulo: "Pega el prompt de ajuste",
+        escribe: PROMPT_CONFIG,
+        veras: "Codex te muestra el archivo actual y los cambios que propone, y te pide permiso.",
+      },
+      {
+        titulo: "Lee y aprueba",
+        donde: "Comprueba que solo cambia approval_policy y sandbox_mode. Pulsa Intro.",
+        atascado:
+          "approval_policy = \"on-request\": te pregunta antes de acciones delicadas. sandbox_mode = \"workspace-write\": solo puede escribir en la carpeta del proyecto.",
+      },
+      {
+        titulo: "Reinicia la aplicación",
+        donde: "Ciérrala y vuelve a abrirla para que lea la configuración nueva.",
+      },
+      {
+        titulo: "Comprueba la configuración",
+        escribe: "Lee ~/.codex/config.toml y explícame en 3 líneas cómo vas a trabajar conmigo.",
+        veras: "Que te pedirá permiso y que solo escribirá en la carpeta del proyecto.",
+      },
+      {
+        titulo: "Aprende a deshacer",
+        donde: "Si algo deja de funcionar, este prompt devuelve el archivo a como estaba:",
+        escribe: "Restaura ~/.codex/config.toml desde config.toml.bak y explícame qué ha cambiado.",
+      },
+    ],
+    reto: "Con un prompt de ajuste, configura ~/.codex/config.toml con approval_policy = \"on-request\" y sandbox_mode = \"workspace-write\", con copia de seguridad.",
+    fallos: [
+      { problema: "Codex da un error al arrancar.", solucion: "Abre un chat nuevo y pega el prompt de restaurar desde config.toml.bak." },
+      { problema: "Quiero cambiar también el modelo por defecto.", solucion: "Mismo patrón: primero pregunta «¿Qué modelos tengo disponibles en Codex?» y después pide «model = \"…\"» en un prompt de ajuste." },
+    ],
+    compruebalo: ["config.toml tiene los dos ajustes.", "Existe config.toml.bak.", "Sabes restaurarlo."],
+  },
+  {
+    id: "ajustes-cuenta",
+    titulo: "Ajusta tu cuenta de ChatGPT",
+    paraQue: "Proteger tus datos en los ajustes que solo se pueden cambiar desde la aplicación.",
+    tiempo: "15 min",
     antes: ["La aplicación abierta."],
     pasos: [
       {
+        titulo: "Abre Ajustes y localiza el buscador",
+        donde: "Círculo con tus iniciales (abajo a la izquierda) → «Ajustes». Arriba de la lista hay un buscador: lo usarás en todos los pasos.",
+        captura: { archivo: "capturas/m0-ajustes.png", descripcion: "Ajustes, con el buscador arriba de la lista" },
+      },
+      {
         titulo: "Desactiva el uso de tus chats para entrenar",
-        donde: "Ajustes → «Controles de datos» → desactiva la opción de usar tu contenido para mejorar el modelo (en inglés, «Improve the model for everyone»).",
-        veras: "El interruptor en gris (desactivado).",
-        atascado: "Si usas una cuenta institucional, puede que ya venga desactivado y no lo puedas cambiar. Es correcto.",
-        captura: cap("m1-controles-datos.png", "Controles de datos con la opción de mejorar el modelo desactivada"),
+        donde: "Escribe «mejorar» en el buscador de Ajustes. Desactiva la opción de usar tu contenido para mejorar el modelo (en inglés, «Improve the model for everyone»).",
+        veras: "El interruptor desactivado.",
+        atascado: "Con una cuenta institucional puede venir ya desactivado y bloqueado. Es correcto.",
       },
       {
         titulo: "Desactiva el acceso completo",
-        donde: "Ajustes → «General» → apartado «Permisos»: desactiva «Acceso completo». Deja activado «Permisos predeterminados».",
+        donde: "Escribe «acceso completo» en el buscador. Desactiva «Acceso completo» y deja activados los permisos predeterminados.",
         veras:
-          "Con el acceso completo, ChatGPT puede editar cualquier archivo de tu ordenador y ejecutar comandos con acceso a internet sin pedirte permiso. Desactivado, trabaja solo en su área y te pregunta antes de ir más allá.",
-        atascado: "Si más adelante una tarea de Codex necesita más acceso, te lo pedirá en ese momento. Es más seguro aprobarlo caso a caso.",
-        captura: cap("m1-acceso-completo.png", "Ajustes → General → Permisos, con «Acceso completo» señalado"),
+          "Con el acceso completo, la aplicación puede editar cualquier archivo y ejecutar comandos con internet sin preguntarte. Desactivado, te pide permiso.",
+        captura: { archivo: "capturas/m1-acceso-completo.png", descripcion: "Permisos, con «Acceso completo» señalado" },
       },
       {
-        titulo: "Revisa la memoria",
-        donde: "Ajustes → «Personalización» → «Memoria de ChatGPT»: interruptor «Habilitar memoria». Con el botón «Gestionar» (en «Resumen de memoria») ves lo que ha aprendido de ti.",
-        veras:
-          "Si la memoria está activada, ChatGPT recuerda datos de unas conversaciones para otras. Puedes desactivarla o revisar y borrar lo que ha guardado. La memoria de Codex se controla aparte, justo debajo.",
-        atascado: "Recomendación del curso: si la activas, revisa de vez en cuando lo guardado y borra cualquier dato de personas.",
-        captura: cap("m1-memoria.png", "Personalización, con «Habilitar memoria» y «Gestionar» señalados"),
+        titulo: "Decide qué hacer con la memoria",
+        donde: "Escribe «memoria» en el buscador. Con «Habilitar memoria» la activas o desactivas; con «Gestionar» ves lo que ha guardado.",
+        veras: "Recomendación del curso: si la usas, revísala de vez en cuando y borra cualquier dato de personas.",
+        captura: { archivo: "capturas/m1-memoria.png", descripcion: "Personalización, con «Habilitar memoria» y «Gestionar» señalados" },
       },
       {
-        titulo: "Conoce el chat temporal",
-        donde: "Al empezar un chat nuevo, busca la opción de chat temporal (en inglés, «Temporary chat»).",
-        veras:
-          "Un chat temporal no aparece en el historial, no crea memorias y no se usa para entrenar. Úsalo para pruebas o temas delicados (aun así, nunca con datos personales sin anonimizar).",
-        captura: cap("m1-chat-temporal.png", "Botón o interruptor de chat temporal al iniciar un chat"),
+        titulo: "Copia tus instrucciones al modo chat",
+        donde: "Escribe «instrucciones» en el buscador y pega el mismo texto que pusiste en AGENTS.md (sin las líneas de Archivo, Seguridad y Comprobación).",
+        veras: "Así ChatGPT en modo chat también conoce tu ciclo y tus normas.",
       },
       {
         titulo: "Pasa el semáforo de privacidad",
-        donde: "Abre la página «Privacidad» de esta web y responde a las preguntas pensando en cómo vas a usar ChatGPT.",
-        veras: "Un resultado verde, ámbar o rojo con los motivos.",
+        donde: "Página «Privacidad» de esta web: responde pensando en cómo vas a usar ChatGPT.",
       },
     ],
-    reto: "Desactiva el uso de tus chats para entrenar y el acceso completo, decide qué hacer con la memoria y localiza el chat temporal.",
-    fallos: [{ problema: "No encuentro el chat temporal.", solucion: "Su ubicación cambia según la versión. Pregunta en el foro del curso o búscalo en la web chatgpt.com." }],
-    compruebalo: ["El uso de tus chats para mejorar el modelo está desactivado.", "«Acceso completo» está desactivado.", "Sabes si tu memoria está activada y cómo revisarla."],
+    reto: "Desactiva el entrenamiento con tus chats y el acceso completo, decide sobre la memoria y copia tus instrucciones al modo chat.",
+    fallos: [{ problema: "El buscador no encuentra una opción.", solucion: "Prueba con sinónimos (datos, privacidad, entrenamiento) o con la palabra en inglés que aparece entre paréntesis." }],
+    compruebalo: ["El entrenamiento con tus chats está desactivado.", "El acceso completo está desactivado.", "ChatGPT en modo chat conoce tu ciclo."],
   },
   {
     id: "primer-plugin",
-    titulo: "Instala tu primer plugin y conecta Google Drive",
-    paraQue: "Que ChatGPT pueda leer documentos de una carpeta de Drive sin que tengas que subirlos uno a uno.",
+    titulo: "Instala tu primer complemento y conecta Google Drive",
+    paraQue: "Que ChatGPT pueda leer documentos de una carpeta de Drive sin subirlos uno a uno.",
     tiempo: "20 min",
     antes: [
       "Una cuenta de Google, mejor la del centro.",
-      "En Google Drive, una carpeta llamada «Curso IA – pruebas» con 2 o 3 documentos sin datos personales (por ejemplo, una programación o una guía).",
-      "Haber pasado el semáforo de privacidad (receta anterior).",
+      "En Google Drive, una carpeta «Curso IA – pruebas» con 2 o 3 documentos sin datos personales (puedes usar los materiales de práctica de esta web).",
+      "Haber pasado el semáforo de privacidad.",
     ],
     pasos: [
       {
-        titulo: "Abre el catálogo de complementos (plugins)",
-        donde: "Ajustes → Integraciones → «Complementos».",
-        veras: "El catálogo de complementos, con pestañas como la de OpenAI, la de tu espacio de trabajo y la personal.",
-        captura: cap("m1-catalogo-plugins.png", "Catálogo de complementos con sus pestañas"),
+        titulo: "Abre el catálogo de complementos",
+        donde: "Ajustes → escribe «complementos» en el buscador (o ve a Integraciones → «Complementos»).",
+        veras: "El catálogo de complementos (plugins).",
       },
       {
-        titulo: "Busca Google Drive y ábrelo",
-        donde: "Escribe «Google Drive» en el buscador del catálogo y pulsa sobre el resultado.",
-        veras: "La ficha del plugin con su descripción y un botón «+».",
+        titulo: "Busca Google Drive e instálalo",
+        donde: "Busca «Google Drive» en el catálogo, abre su ficha y pulsa el botón para añadirlo.",
+        veras: "Una ventana de Google que te pide elegir cuenta.",
       },
       {
-        titulo: "Instálalo",
-        donde: "Pulsa el botón «+» de la ficha.",
-        veras: "Una ventana que te pide conectar tu cuenta de Google.",
-        captura: cap("m1-instalar-drive.png", "Ficha del plugin de Google Drive con el botón «+» señalado"),
-      },
-      {
-        titulo: "Conecta tu cuenta y revisa los permisos",
-        donde:
-          "Elige tu cuenta de Google, lee qué permisos pide y apruébalos si estás de acuerdo.",
-        veras: "Vuelves a ChatGPT y el plugin aparece como instalado.",
-        atascado:
-          "Si la ventana de Google no se abre, revisa que el navegador no esté bloqueando ventanas emergentes. Si tu centro no permite conectar aplicaciones externas, consulta con el servicio TIC.",
-        captura: cap("m1-permisos-google.png", "Ventana de Google pidiendo permisos para ChatGPT"),
+        titulo: "Revisa los permisos y aprueba",
+        donde: "Elige tu cuenta, lee qué permisos pide y apruébalos si estás de acuerdo.",
+        veras: "Vuelves a la aplicación con el complemento instalado.",
+        atascado: "Si tu centro no permite conectar aplicaciones externas, consulta con el servicio TIC.",
       },
       {
         titulo: "Pruébalo",
-        donde: "Abre un chat nuevo de ChatGPT y escribe:",
+        donde: "En un chat nuevo de ChatGPT escribe:",
         escribe: "Usa Google Drive para listar los documentos de la carpeta «Curso IA – pruebas» y resume en 3 líneas cada uno.",
-        veras: "La lista de tus documentos con un resumen breve de cada uno.",
-        captura: cap("m1-prueba-drive.png", "Respuesta con la lista de documentos de la carpeta de pruebas"),
+        veras: "La lista de documentos con un resumen breve de cada uno.",
       },
     ],
-    reto: "Instala el plugin de Google Drive, conecta tu cuenta y pide a ChatGPT que resuma los documentos de una carpeta de pruebas.",
+    reto: "Instala el complemento de Google Drive, conecta tu cuenta y pide un resumen de los documentos de una carpeta de pruebas.",
     fallos: [
-      { problema: "No aparece el complemento de Google Drive.", solucion: "Puede que tu plan o tu espacio de trabajo no lo permita. Prueba con otro plugin del catálogo o consulta al administrador de la cuenta del centro." },
-      { problema: "Dice que no encuentra la carpeta.", solucion: "Escribe el nombre exacto de la carpeta, con las mayúsculas y el guion, y comprueba que está en tu unidad y no en una compartida." },
+      { problema: "No aparece Google Drive en el catálogo.", solucion: "Puede que tu plan o tu espacio de trabajo no lo permita. Consulta con quien administre la cuenta del centro." },
+      { problema: "No encuentra la carpeta.", solucion: "Escribe el nombre exacto, con mayúsculas y guion, y comprueba que está en tu unidad." },
     ],
-    compruebalo: ["El plugin aparece como instalado.", "ChatGPT ha leído los documentos de tu carpeta de pruebas."],
-  },
-  {
-    id: "config-codex",
-    titulo: "Para ir más allá: ajusta Codex con config.toml",
-    paraQue: "Fijar el modelo y pedir a Codex que te pregunte antes de hacer cambios. Solo si vas a usar Codex a menudo.",
-    tiempo: "15 min",
-    opcional: true,
-    antes: ["Haber abierto Codex al menos una vez (se crea la carpeta de configuración)."],
-    pasos: [
-      {
-        titulo: "Localiza el archivo de configuración",
-        donde:
-          "Windows: abre el Explorador de archivos y escribe en la barra de direcciones %USERPROFILE%\\.codex. Mac: en Finder, pulsa Cmd+Mayús+G y escribe ~/.codex.",
-        veras: "Una carpeta .codex. Dentro puede haber un archivo config.toml.",
-        atascado: "Si no existe config.toml, crea un archivo de texto vacío con ese nombre exacto (sin .txt al final).",
-      },
-      {
-        titulo: "Ábrelo con un editor de texto",
-        donde: "Clic derecho → Abrir con → Bloc de notas (Windows) o TextEdit (Mac).",
-      },
-      {
-        titulo: "Añade la configuración",
-        donde: "Pega estas líneas y cambia el nombre del modelo por el que aparezca en Codex.",
-        escribe: 'model = "NOMBRE-DEL-MODELO"   # el que muestre Codex en tu cuenta\napproval_policy = "on-request"\nsandbox_mode = "workspace-write"',
-        atascado: "approval_policy = \"on-request\" hace que Codex te pida permiso antes de acciones delicadas. sandbox_mode = \"workspace-write\" le deja escribir solo en la carpeta del proyecto.",
-      },
-      {
-        titulo: "Guarda y reinicia Codex",
-        donde: "Guarda el archivo, cierra la aplicación y vuelve a abrirla.",
-        veras: "Codex usa el modelo indicado y te pide aprobación antes de acciones delicadas.",
-      },
-    ],
-    reto: "Configura ~/.codex/config.toml con tu modelo, approval_policy = \"on-request\" y sandbox_mode = \"workspace-write\".",
-    fallos: [
-      { problema: "Codex da un error al abrirse.", solucion: "Revisa que las comillas sean rectas (\") y no tipográficas, y que cada ajuste esté en su propia línea." },
-    ],
-    compruebalo: ["Codex se abre sin errores y te pide permiso antes de modificar archivos."],
+    compruebalo: ["El complemento aparece como instalado.", "ChatGPT ha leído los documentos de tu carpeta de pruebas."],
   },
 ];

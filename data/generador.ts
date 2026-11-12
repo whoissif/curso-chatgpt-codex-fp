@@ -112,6 +112,15 @@ export const plantillas: Plantilla[] = [
   },
 ];
 
+plantillas.push({
+  id: "ajuste-codex",
+  nombre: "Cambiar un ajuste de Codex (prompt de ajuste)",
+  tarea:
+    "Archivo: [~/.codex/config.toml o ~/.codex/AGENTS.md].\nCambios: [ajustes y valores exactos].\nSeguridad: antes de tocar nada, haz una copia del archivo con la extensión .bak y no cambies nada más.",
+  formato: "Muéstrame el contenido antes y después y explícame cada cambio en una línea.",
+  pistaContexto: "Qué quieres conseguir con el ajuste (p. ej., que Codex me pida permiso antes de modificar archivos).",
+});
+
 export const restricciones = [
   { id: "normativa", texto: "No inventes referencias normativas. Si citas una norma, indica cuál y el artículo; si no estás seguro, dilo." },
   { id: "falta", texto: "Si falta información para hacer bien la tarea, pregúntame antes de responder." },

@@ -12,7 +12,7 @@ export const curso = {
     "Integrar ChatGPT y Codex en los flujos de docencia y coordinación mediante ajustes seguros, selección de modelos, proyectos, skills, plugins/conectores y agentes, con ejercicios aplicados a los ciclos de servicios socioculturales, administración y comercio.",
   objetivosEspecificos: [
     "Configurar preferencias y parámetros de ChatGPT y Codex.",
-    "Elegir modelo (GPT-5, razonamiento, Codex) según la tarea.",
+    "Elegir el modelo (rápido, de razonamiento o Codex) según la tarea.",
     "Organizar Proyectos con materiales e instrucciones.",
     "Crear skills reutilizables.",
     "Instalar y usar plugins y conectores para conectar ChatGPT/Codex con Drive, Slack, Notion, etc.",
@@ -24,6 +24,7 @@ export const curso = {
 import type { Receta } from "./tipos-receta";
 import { recetasModulo0, recetasModulo1 } from "./recetas";
 import { recetasModulo7 } from "./recetas-m7";
+import { recetasModulo2, recetasModulo3, recetasModulo4, recetasModulo5, recetasModulo6 } from "./recetas-m2-6";
 
 export type Modulo = {
   /** Si existen, sustituyen a `pasos` en la página del módulo. */
@@ -68,18 +69,17 @@ export const modulos: Modulo[] = [
     numero: 1,
     titulo: "Ajustes iniciales: entorno seguro y eficiente",
     duracion: "3 h",
-    objetivo: "Dejar ChatGPT configurado de forma segura e instalar tu primer plugin con una conexión a Google Drive.",
+    objetivo: "Configurar Codex con prompts de ajuste, proteger tu cuenta de ChatGPT e instalar tu primer complemento con una conexión a Google Drive.",
     contenidos: [
-      "Personalización de ChatGPT: instrucciones personalizadas y estilo de respuesta.",
-      "Protección de datos: controles de datos, memoria y chat temporal.",
-      "Plugins: paquetes que agrupan skills y conexiones a servicios (apps); cómo se instalan desde el catálogo.",
-      "Conexiones (apps, antes «conectores»): cómo autorizar Google Drive y qué permisos concedes.",
-      "Para ir más allá (opcional): ajustes de Codex con config.toml.",
+      "El prompt de ajuste: objetivo, archivo, cambios, seguridad y comprobación.",
+      "Instrucciones permanentes de Codex (~/.codex/AGENTS.md) y seguridad (~/.codex/config.toml), configuradas por prompt.",
+      "Ajustes de la cuenta de ChatGPT que solo se cambian en la aplicación: entrenamiento, acceso completo, memoria e instrucciones del modo chat.",
+      "Complementos (plugins): qué son y cómo se instalan; conexión con Google Drive y permisos que concedes.",
     ],
     ejercicioTitulo: "Recetas paso a paso",
     recetas: recetasModulo1,
     pasos: [],
-    entregable: "Capturas de tus instrucciones personalizadas, de los controles de datos y del plugin de Google Drive respondiendo sobre tu carpeta de pruebas. La captura de config.toml, solo si haces la receta opcional.",
+    entregable: "Tus dos prompts de ajuste (AGENTS.md y config.toml) con la respuesta final de Codex, y una captura de ChatGPT resumiendo tu carpeta de pruebas de Drive.",
   },
   {
     slug: "modulo-2",
@@ -91,12 +91,9 @@ export const modulos: Modulo[] = [
       "Modelos generales frente a modelos de razonamiento y Codex.",
       "Los plugins y conectores funcionan con independencia del modelo elegido, pero algunos flujos complejos se benefician de modelos de razonamiento.",
     ],
-    ejercicioTitulo: "Ejercicio",
-    pasos: [
-      "Plantea un mismo caso de adaptación curricular.",
-      "Resuélvelo con GPT-5 y con un modelo de razonamiento.",
-      "Compara los resultados en una tabla y saca una conclusión.",
-    ],
+    ejercicioTitulo: "Recetas paso a paso",
+    recetas: recetasModulo2,
+    pasos: [],
     entregable: "Tabla comparativa y conclusión.",
   },
   {
@@ -112,19 +109,9 @@ export const modulos: Modulo[] = [
       "Instrucciones de proyecto y límites.",
       "Optimización: convertir el proyecto en «kit de coordinación» o «kit de estudio».",
     ],
-    ejercicioTitulo: "Ejercicio",
-    pasos: [
-      "Crea el proyecto y sube 3–5 documentos reales (o conéctalo a una carpeta de Drive/SharePoint).",
-      "Añade la instrucción de proyecto (texto abajo).",
-      "Genera un kit de coordinación: resumen de normativa, checklist y modelo de comunicación.",
-    ],
-    prompts: [
-      {
-        titulo: "Instrucción de proyecto",
-        texto:
-          "Responde solo con los documentos cargados/conectados. Si falta información, indícalo. No inventes referencias normativas.",
-      },
-    ],
+    ejercicioTitulo: "Recetas paso a paso",
+    recetas: recetasModulo3,
+    pasos: [],
     entregable: "Enlace o captura del proyecto y reflexión sobre la utilidad del conector frente a la subida manual.",
   },
   {
@@ -139,12 +126,9 @@ export const modulos: Modulo[] = [
       "Conector dentro del plugin: p. ej., el plugin «Revisor de programaciones» puede incluir la skill y un conector a la carpeta de Drive con las programaciones.",
       "Aplicaciones: rúbricas, lectura fácil, revisión normativa, simulación de entrevistas, corrección de supuestos contables o de planes de marketing.",
     ],
-    ejercicioTitulo: "Ejercicio",
-    pasos: [
-      "Diseña una skill propia (p. ej., «Corregir y dar retroalimentación a informes de prácticas»).",
-      "Empaquétala en un plugin sencillo (con la herramienta integrada de Codex o a mano) e incluye, si aplica, un conector a la carpeta de los informes.",
-      "Prueba el plugin con Codex o ChatGPT.",
-    ],
+    ejercicioTitulo: "Recetas paso a paso",
+    recetas: recetasModulo4,
+    pasos: [],
     entregable: "Definición de la skill, estructura del plugin y evidencia de funcionamiento.",
   },
   {
@@ -155,15 +139,12 @@ export const modulos: Modulo[] = [
     objetivo: "Mejorar los resultados con una fórmula de prompt y planificación previa.",
     contenidos: [
       "Fórmula de prompt para tareas docentes.",
-      "Modo /plan: plan paso a paso antes de generar o cambiar.",
+      "Pedir un plan antes de generar o cambiar nada (en Codex, también con /plan).",
       "Los plugins pueden incluir instrucciones en Markdown que guían al agente dentro del paquete.",
     ],
-    ejercicioTitulo: "Ejercicio",
-    pasos: [
-      "Aplica la fórmula de prompt para pedir un banco de ítems.",
-      "Usa /plan para obtener un plan de revisión antes de generar.",
-      "Revisa y entrega la versión final.",
-    ],
+    ejercicioTitulo: "Recetas paso a paso",
+    recetas: recetasModulo5,
+    pasos: [],
     entregable: "Banco de ítems + plan de revisión + versión final.",
     apoyo: [{ href: "/generador", texto: "Generador de prompts (plantilla «Generar un banco de ítems»)" }],
   },
@@ -183,15 +164,9 @@ export const modulos: Modulo[] = [
       "Buenas prácticas: definir alcance, limitar permisos, revisar acciones y registrar lo hecho.",
     ],
     ejercicioTitulo: "Ejercicio (itinerario A o B)",
-    pasos: [
-      "A1 · Diseña la skill «Simulador de entrevista» para tu ciclo (intervención social, atención al cliente, negociación comercial o selección de personal). Parte de la plantilla de abajo.",
-      "A2 · Añade como archivos de referencia 2–3 casos ficticios o anonimizados (references/casos.md) y la rúbrica de feedback (references/rubrica.md).",
-      "A3 · Empaquétala en un plugin (con la herramienta de Codex o a mano) y, opcionalmente, añade la conexión a una carpeta de Drive con casos anonimizados.",
-      "A4 · Pruébalo en ChatGPT con una entrevista completa y comprueba que el personaje no se sale del papel y que el feedback sigue la rúbrica.",
-      "B · Agente Codex con plugin y conexión: crea un agente que, con un plugin conectado a una carpeta de actas (Drive/SharePoint) o a Slack, genere un resumen ejecutivo y una tabla de acuerdos y responsables.",
-    ],
+    recetas: recetasModulo6,
+    pasos: [],
     entregable: "Itinerario A: estructura del plugin y captura de una entrevista de prueba con su feedback. Itinerario B: informe del agente. En ambos, descripción de las conexiones usadas y de sus restricciones.",
-    prompts: [{ titulo: "Plantilla de SKILL.md (itinerario A)", texto: '---\nname: simulador-entrevista\ndescription: Simula una entrevista profesional (intervención social, atención al cliente, negociación comercial o selección de personal) y da feedback con una rúbrica. Úsala cuando alguien quiera practicar una entrevista.\n---\n\n# Simulador de entrevista\n\n## Antes de empezar\nPregunta qué tipo de entrevista quiere practicar, de qué ciclo es y qué caso usar. Si no tiene uno, elige un caso de references/casos.md.\n\n## Durante la entrevista\n- Interpreta solo al personaje del caso (persona usuaria, cliente, proveedor o candidato). No salgas del papel.\n- Responde de forma realista y con la información del caso, sin darla toda de golpe.\n- Una intervención cada vez: espera a que te pregunten.\n- Si escriben «FIN», termina la entrevista.\n\n## Al terminar\nDa feedback con la rúbrica de references/rubrica.md: puntos fuertes, aspectos que mejorar citando frases concretas de la entrevista y una puntuación por criterio.\n\n## Límites\n- Usa solo casos ficticios o anonimizados.\n- Si alguien introduce datos reales de una persona, avísale y no los utilices.' }],
     apoyo: [{ href: "/privacidad", texto: "Antes de conectar una carpeta real: semáforo de privacidad" }],
   },
   {

@@ -7,6 +7,8 @@ export type Captura = {
 
 export type PasoReceta = {
   titulo: string;
+  /** Explicación o idea clave (pasos que no son una acción). */
+  nota?: string;
   /** Dónde hacer clic o qué abrir. */
   donde?: string;
   /** Texto para copiar y pegar. */

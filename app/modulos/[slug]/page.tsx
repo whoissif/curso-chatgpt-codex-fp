@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import { modulos } from "@/data/curso";
 import Checklist from "@/components/Checklist";
 import CopiarPrompt from "@/components/CopiarPrompt";
-import RecetaVista, { SelectorNivel } from "@/components/RecetaVista";
+import RecetaVista, { AvisoInterfaz, SelectorNivel } from "@/components/RecetaVista";
 
 type P = { params: Promise<{ slug: string }> };
 
@@ -51,6 +51,7 @@ export default async function Modulo({ params }: P) {
         <section className="bloque">
           <h2>{m.ejercicioTitulo}</h2>
           <SelectorNivel />
+          <AvisoInterfaz />
           <nav className="indice-recetas" aria-label="Recetas de este módulo">
             {m.recetas.map((r, n) => (
               <a key={r.id} href={`#${r.id}`}>{n + 1}. {r.titulo}{r.opcional ? " (opcional)" : ""} · {r.tiempo}</a>

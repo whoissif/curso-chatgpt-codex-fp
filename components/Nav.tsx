@@ -7,6 +7,7 @@ const links = [
   { href: "/modulos", t: "Módulos" },
   { href: "/generador", t: "Generador de prompts" },
   { href: "/privacidad", t: "Privacidad" },
+  { href: "/materiales", t: "Materiales" },
   { href: "/herramientas", t: "Herramientas" },
   { href: "/glosario", t: "Glosario" },
   { href: "/evaluacion", t: "Evaluación y ética" },

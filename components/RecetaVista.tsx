@@ -27,6 +27,21 @@ export function SelectorNivel() {
   );
 }
 
+export function AvisoInterfaz() {
+  return (
+    <details className="aviso-interfaz">
+      <summary>¿Tu pantalla no coincide con lo que dice un paso?</summary>
+      <p>La aplicación cambia a menudo. Lo importante es la función, no el sitio exacto del botón:</p>
+      <ul>
+        <li><strong>Ajustes:</strong> escribe la palabra clave del paso (memoria, instrucciones, datos, complementos…) en el buscador que hay arriba de la lista de Ajustes.</li>
+        <li><strong>Botones:</strong> busca la palabra entre comillas del paso. Si no está en español, prueba con la traducción en inglés que aparece entre paréntesis.</li>
+        <li><strong>Codex:</strong> si no encuentras un menú, pídeselo a Codex con tus palabras («crea la carpeta…», «abre el archivo…»). Te pedirá permiso antes de hacerlo.</li>
+        <li><strong>Si sigues atascado:</strong> pregunta en el foro del curso indicando el paso y lo que ves en pantalla.</li>
+      </ul>
+    </details>
+  );
+}
+
 /** capturas: índices de pasos cuya captura existe en /public */
 export default function RecetaVista({ slug, receta, capturas }: { slug: string; receta: Receta; capturas: number[] }) {
   const [nivel] = useNivel();
@@ -72,18 +87,16 @@ export default function RecetaVista({ slug, receta, capturas }: { slug: string; 
                 </label>
                 {nivel === "guiado" && (
                   <div className="paso-cuerpo">
+                    {p.nota && <p><span className="etq etq-nota">Idea clave</span> {p.nota}</p>}
                     {p.donde && <p><span className="etq etq-donde">Dónde</span> {p.donde}</p>}
                     {p.escribe && <CopiarPrompt titulo="Escribe o pega esto" texto={p.escribe} />}
                     {p.veras && <p><span className="etq etq-veras">Deberías ver</span> {p.veras}</p>}
-                    {p.captura && (
-                      capturas.includes(i) ? (
-                        // eslint-disable-next-line @next/next/no-img-element
+                    {p.captura && capturas.includes(i) && (
+                      <details className="ver-captura">
+                        <summary>Ver captura de ejemplo</summary>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img className="captura" src={`/${p.captura.archivo}`} alt={p.captura.descripcion} loading="lazy" />
-                      ) : (
-                        <div className="captura-pendiente" role="note">
-                          <strong>Captura pendiente</strong> · {p.captura.descripcion}
-                        </div>
-                      )
+                      </details>
                     )}
                     {p.atascado && (
                       <details className="atascado">
