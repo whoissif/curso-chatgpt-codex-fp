@@ -30,10 +30,13 @@ Windows: tecla Windows + Mayús + S. Mac: Cmd + Mayús + 4.
 | 14 | m1-permisos-google.png | La ventana de Google pidiendo permisos |
 | 15 | m1-prueba-drive.png | La respuesta de ChatGPT con los documentos de tu carpeta de prueba |
 
-## Preguntas que resuelven estas capturas
+## Confirmado
 
-1. **¿Cómo se abren los Ajustes?** Las recetas dicen: círculo con tus iniciales (abajo a la izquierda) → «Ajustes».
-2. **¿«Complementos» es el catálogo de plugins?** ¿O hay también un icono en la columna de iconos de la izquierda?
-3. **¿Dónde están las instrucciones personalizadas?** ¿Y tienen botón «Guardar»?
-4. **¿Dónde está el chat temporal?**
-5. **¿Qué es el selector «Chat | Work» de arriba?** Las recetas dicen que lo dejes en «Chat» hasta el módulo 4.
+- Los Ajustes se abren con el círculo de tus iniciales (abajo a la izquierda) → «Ajustes».
+- «Complementos» (Ajustes → Integraciones) es el catálogo de plugins.
+
+## Preguntas pendientes
+
+1. **¿Dónde están las instrucciones personalizadas?** ¿Y tienen botón «Guardar»?
+2. **¿Dónde está el chat temporal?**
+3. **¿Qué es el selector «Chat | Work» de arriba?** Las recetas dicen que lo dejes en «Chat» hasta el módulo 4.
