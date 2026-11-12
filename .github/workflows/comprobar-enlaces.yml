@@ -1,0 +1,35 @@
+name: Comprobar enlaces de Recursos
+
+on:
+  schedule:
+    - cron: "0 7 * * 1" # cada lunes a las 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  enlaces:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Comprobar enlaces
+        id: comprobar
+        run: node scripts/comprobar-enlaces.mjs
+        continue-on-error: true
+      - name: Avisar si hay enlaces rotos
+        if: steps.comprobar.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create enlaces-rotos --color B60205 --description "Enlaces rotos en Recursos" 2>/dev/null || true
+          abierto=$(gh issue list --label enlaces-rotos --state open --json number --jq '.[0].number')
+          if [ -n "$abierto" ]; then
+            gh issue comment "$abierto" --body-file informe-enlaces.md
+          else
+            gh issue create --title "Enlaces rotos en la página de Recursos" --label enlaces-rotos --body-file informe-enlaces.md
+          fi
