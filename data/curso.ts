@@ -23,6 +23,7 @@ export const curso = {
 
 import type { Receta } from "./tipos-receta";
 import { recetasModulo0, recetasModulo1 } from "./recetas";
+import { recetasModulo7 } from "./recetas-m7";
 
 export type Modulo = {
   /** Si existen, sustituyen a `pasos` en la página del módulo. */
@@ -205,12 +206,8 @@ export const modulos: Modulo[] = [
       "Plan de implementación trimestral: qué plugins/conectores se usarán, con qué grupos, qué tareas se automatizan y qué medidas de privacidad se adoptan.",
     ],
     ejercicioTitulo: "Ejercicio final: «Kit de coordinación y docencia asistido por IA»",
-    pasos: [
-      "Proyecto configurado (con o sin conector).",
-      "Una skill.",
-      "Un plugin propio o un agente Codex que use una conexión a un servicio.",
-      "Reflexión ética sobre datos.",
-    ],
+    recetas: recetasModulo7,
+    pasos: [],
     entregable: "Documento de 2–3 páginas con el kit y el plan.",
   },
 ];
