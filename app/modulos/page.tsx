@@ -16,7 +16,7 @@ export default function Modulos() {
           <Link key={m.slug} href={`/modulos/${m.slug}`} className="tarjeta">
             <div className="tarjeta-cab">
               <span className="num">{m.numero}</span>
-              <EstadoModulo slug={m.slug} total={m.pasos.length} />
+              <EstadoModulo slug={m.slug} total={m.recetas ? m.recetas.reduce((n, r) => n + r.pasos.length, 0) : m.pasos.length} />
             </div>
             <h2>{m.titulo}</h2>
             <p>{m.objetivo}</p>

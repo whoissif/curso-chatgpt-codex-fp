@@ -235,6 +235,45 @@ th { font-size: 0.85rem; color: var(--suave); text-transform: uppercase; letter-
   .gen-salida, .resultado { position: static; }
 }
 
+/* Recetas */
+.selector-nivel { border: 0; padding: 0; margin: 0 0 16px; }
+.selector-nivel legend { font-weight: 600; margin-bottom: 6px; padding: 0; }
+.selector-nivel .ayuda { margin-top: 6px; }
+.indice-recetas { display: flex; flex-direction: column; gap: 4px; margin: 0 0 8px; padding: 12px 14px; background: var(--fondo); border-radius: 10px; font-size: 0.95rem; }
+.receta { border: 1px solid var(--borde); border-radius: var(--radio); padding: 18px; margin: 18px 0; scroll-margin-top: 80px; }
+.receta-opcional { border-style: dashed; }
+.receta-cab { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+.receta-cab h3 { margin: 0; font-size: 1.15rem; }
+.receta-para { margin: 4px 0 0; color: var(--suave); }
+.receta-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.antes { margin: 14px 0 0; padding: 12px 14px; background: var(--acento-suave); border-radius: 10px; }
+.antes ul { margin: 6px 0 0; padding-left: 20px; }
+.pasos-receta { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+.pasos-receta > li { border: 1px solid var(--borde); border-radius: 10px; padding: 12px 14px; }
+.pasos-receta > li.hecho { background: var(--ok-suave); border-color: transparent; }
+.paso-tit { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; cursor: pointer; }
+.paso-tit input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--acento); flex: none; }
+.paso-num { color: var(--acento); }
+.paso-cuerpo { margin: 8px 0 0 30px; }
+.paso-cuerpo > p { margin: 8px 0; }
+.paso-cuerpo .prompt { margin: 8px 0; }
+.etq { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 6px; margin-right: 4px; }
+.etq-donde { background: var(--acento-suave); color: var(--acento); }
+.etq-veras { background: var(--ok-suave); color: var(--ok); }
+.captura { display: block; max-width: 100%; height: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 8px 0; }
+.captura-pendiente { margin: 8px 0; padding: 10px 12px; border: 2px dashed var(--borde); border-radius: 8px; color: var(--suave); font-size: 0.9rem; }
+.atascado, .fallos { margin: 8px 0 0; }
+.atascado summary, .fallos summary { cursor: pointer; font-weight: 600; color: var(--curso); }
+.atascado p { margin: 6px 0 0; padding: 10px 12px; background: var(--curso-suave); border-radius: 8px; }
+.fallos { margin-top: 14px; }
+.fallos dl { margin: 8px 0 0; }
+.fallos dt { font-weight: 600; margin-top: 8px; }
+.fallos dd { margin: 2px 0 0; color: var(--suave); }
+.compruebalo { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--borde); }
+.reto { margin-top: 12px; padding: 12px 14px; background: var(--fondo); border-radius: 10px; }
+.reto p { margin: 0 0 6px; }
+@media (max-width: 640px) { .paso-cuerpo { margin-left: 0; } }
+
 .grupo-t { font-size: 1.15rem; margin: 28px 0 0; }
 
 .pie { border-top: 1px solid var(--borde); color: var(--suave); font-size: 0.88rem; padding: 20px 0; }

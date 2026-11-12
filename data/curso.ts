@@ -21,7 +21,12 @@ export const curso = {
   ],
 };
 
+import type { Receta } from "./tipos-receta";
+import { recetasModulo0, recetasModulo1 } from "./recetas";
+
 export type Modulo = {
+  /** Si existen, sustituyen a `pasos` en la página del módulo. */
+  recetas?: Receta[];
   slug: string;
   numero: number;
   titulo: string;
@@ -40,19 +45,21 @@ export const modulos: Modulo[] = [
   {
     slug: "modulo-0",
     numero: 0,
-    titulo: "Presentación y encuadre",
-    duracion: "1 h · síncrona",
-    objetivo: "Situar el curso en el marco normativo y aclarar qué es cada herramienta.",
+    titulo: "Presentación y primeros pasos",
+    duracion: "1 h 45 min · síncrona",
+    objetivo: "Instalar y conocer la aplicación de ChatGPT, conseguir un primer resultado útil y situar el curso.",
     contenidos: [
-      "LOMLOE y competencias digitales docentes.",
+      "Instalación de la aplicación de escritorio y recorrido por la pantalla.",
       "Diferencias entre ChatGPT, Codex y plugins (los GPTs personalizados se están retirando).",
       "Plugins vs conectores vs MCP vs skills.",
+      "LOMLOE y competencias digitales docentes.",
       "Ética y privacidad.",
     ],
     herramientas: ["ChatGPT", "Codex", "Proyectos", "Plugins", "Conectores", "Skills"],
-    ejercicioTitulo: "Actividad de arranque",
-    pasos: ["Escribe una tarea de tu trabajo que quieras automatizar o mejorar con IA."],
-    entregable: "Tarea a automatizar o mejorar, compartida con el grupo.",
+    ejercicioTitulo: "Recetas paso a paso",
+    recetas: recetasModulo0,
+    pasos: [],
+    entregable: "Captura de la rúbrica obtenida en «Tu primer resultado útil» y tu tarea a automatizar publicada en el foro.",
     apoyo: [{ href: "/privacidad", texto: "Semáforo de privacidad: ¿puedo meter este dato en la IA?" }],
   },
   {
@@ -60,32 +67,18 @@ export const modulos: Modulo[] = [
     numero: 1,
     titulo: "Ajustes iniciales: entorno seguro y eficiente",
     duracion: "3 h",
-    objetivo: "Dominar los ajustes de ChatGPT y Codex, e instalar el primer plugin con su conector.",
+    objetivo: "Dejar ChatGPT configurado de forma segura e instalar tu primer plugin con una conexión a Google Drive.",
     contenidos: [
-      "Preferencias de ChatGPT: memoria, personalización y control de datos.",
-      "Ajustes de Codex: config.toml, modelo por defecto, política on-request y sandbox.",
-      "Plugins: paquetes que agrupan skills, conectores y MCP; cómo se instalan desde el directorio y en qué se diferencian de un conector suelto.",
-      "Conectores: cómo autenticar Google Drive, Slack u otro servicio desde los ajustes del plugin o del espacio de trabajo.",
-      "Skills: primeras nociones (unidad reutilizable de instrucciones y recursos).",
+      "Personalización de ChatGPT: instrucciones personalizadas y estilo de respuesta.",
+      "Protección de datos: controles de datos, memoria y chat temporal.",
+      "Plugins: paquetes que agrupan skills y conexiones a servicios (apps); cómo se instalan desde el catálogo.",
+      "Conexiones (apps, antes «conectores»): cómo autorizar Google Drive y qué permisos concedes.",
+      "Para ir más allá (opcional): ajustes de Codex con config.toml.",
     ],
-    ejercicioTitulo: "Ejercicio práctico",
-    pasos: [
-      "Configura la instrucción personalizada de ChatGPT (texto abajo).",
-      "En Codex, ajusta config.toml con GPT-5 y aprobación on-request.",
-      "Instala un plugin del directorio (por ejemplo, uno con conector a Google Drive o Slack) y conecta la cuenta correspondiente.",
-    ],
-    prompts: [
-      {
-        titulo: "Instrucción personalizada",
-        texto:
-          "Actúa como asistente de coordinación académica de FP de Grado Superior en [tu familia profesional y ciclo]. Usa lenguaje técnico pero accesible, cita normativa cuando corresponda y evita inventar datos.",
-      },
-      {
-        titulo: "Fragmento de ~/.codex/config.toml (orientativo)",
-        texto: 'model = "NOMBRE-DEL-MODELO"   # el que muestre Codex en tu cuenta\napproval_policy = "on-request"\nsandbox_mode = "workspace-write"',
-      },
-    ],
-    entregable: "Captura de la instrucción personalizada, del fragmento de config.toml y del plugin/conector activado.",
+    ejercicioTitulo: "Recetas paso a paso",
+    recetas: recetasModulo1,
+    pasos: [],
+    entregable: "Capturas de tus instrucciones personalizadas, de los controles de datos y del plugin de Google Drive respondiendo sobre tu carpeta de pruebas. La captura de config.toml, solo si haces la receta opcional.",
   },
   {
     slug: "modulo-2",
