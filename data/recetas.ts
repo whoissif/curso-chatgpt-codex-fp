@@ -34,10 +34,10 @@ export const recetasModulo0: Receta[] = [
       },
       {
         titulo: "Abre la aplicación e inicia sesión",
-        donde: "Abre ChatGPT y pulsa «Log in» (Iniciar sesión). Usa la misma cuenta que en la web.",
-        veras: "La ventana principal: un cuadro para escribir en el centro y una barra lateral a la izquierda.",
+        donde: "Abre ChatGPT y pulsa «Iniciar sesión». Usa la misma cuenta que en la web.",
+        veras: "La ventana principal: el cuadro «Pregunta a ChatGPT» en el centro y, a la izquierda, la barra lateral con «Nuevo chat», «Proyectos» y «Recientes».",
         atascado: "Si no recuerdas la contraseña, recupérala en chatgpt.com y vuelve a intentarlo en la aplicación.",
-        captura: cap("m0-ventana-principal.png", "Ventana principal de la app tras iniciar sesión"),
+        captura: cap("m0-ventana-principal.png", "Ventana principal: «Nuevo chat» y el cuadro «Pregunta a ChatGPT» señalados"),
       },
     ],
     reto: "Instala la aplicación de escritorio de ChatGPT e inicia sesión con tu cuenta.",
@@ -63,39 +63,38 @@ export const recetasModulo0: Receta[] = [
       {
         titulo: "Localiza la barra lateral",
         donde: "A la izquierda de la ventana.",
-        veras: "El botón «New chat» (nuevo chat) arriba y debajo la lista de tus conversaciones anteriores.",
-        atascado: "Si no ves la barra lateral, busca un icono de panel en la esquina superior izquierda: la muestra y la oculta.",
-        captura: cap("m0-barra-lateral.png", "Barra lateral con «New chat» y el historial, señalados"),
+        veras: "Arriba, «ChatGPT ▾» y «Nuevo chat». Debajo, «Proyectos» y «Recientes» (tus conversaciones anteriores). Abajo del todo, un círculo con tus iniciales.",
+        atascado: "Si no ves la barra lateral, pulsa el icono de panel que hay junto al menú «Archivo», arriba a la izquierda: la muestra y la oculta.",
+        captura: cap("m0-barra-lateral.png", "Barra lateral con «ChatGPT ▾», «Nuevo chat» y el círculo de tus iniciales señalados"),
       },
       {
-        titulo: "Localiza Proyectos y Plugins",
-        donde: "En la misma barra lateral, busca «Projects» (Proyectos) y «Plugins».",
-        veras: "Proyectos agrupa chats y archivos de un mismo tema (módulo 3). Plugins es el catálogo de complementos (módulo 1).",
-        captura: cap("m0-proyectos-plugins.png", "Barra lateral con «Projects» y «Plugins» señalados"),
+        titulo: "Localiza Proyectos y Complementos",
+        donde: "«Proyectos» está en la barra lateral. Los plugins se llaman «Complementos» en la aplicación en español: están en Ajustes → Integraciones → «Complementos».",
+        veras: "Proyectos agrupa chats y archivos de un mismo tema (módulo 3). Complementos es el catálogo de plugins (módulo 1).",
       },
       {
         titulo: "Distingue ChatGPT de Codex",
-        donde: "Pulsa «New chat». Al empezar, la aplicación te deja elegir entre ChatGPT y Codex.",
+        donde: "Arriba de la barra lateral, pulsa «ChatGPT ▾» y elige «Codex». Para volver, pulsa «Codex ▾» y elige «ChatGPT».",
         veras:
-          "ChatGPT es para conversar, redactar y analizar. Codex trabaja con archivos de tu ordenador (módulos 4 a 6). Hasta el módulo 4 usarás siempre ChatGPT.",
-        captura: cap("m0-chatgpt-o-codex.png", "Selector para elegir ChatGPT o Codex al iniciar un chat"),
+          "El título de la barra lateral cambia a «Codex». ChatGPT es para conversar, redactar y analizar; Codex trabaja con archivos de tu ordenador (módulos 4 a 6). Hasta el módulo 4 usarás siempre ChatGPT, con el selector de arriba en «Chat».",
+        captura: cap("m0-chatgpt-o-codex.png", "Barra lateral en modo Codex, con «Codex ▾» señalado"),
       },
       {
         titulo: "Abre los ajustes",
-        donde: "Pulsa tu nombre o tu foto (abajo a la izquierda) y elige «Settings» (Ajustes).",
-        veras: "Una ventana con secciones como «Personalization» (Personalización) y «Data controls» (Controles de datos). Las usarás en el módulo 1.",
-        atascado: "Ciérrala con la X o con la tecla Esc. No hace falta cambiar nada todavía.",
-        captura: cap("m0-ajustes.png", "Ventana de ajustes con «Personalization» y «Data controls» visibles"),
+        donde: "Pulsa el círculo con tus iniciales (abajo a la izquierda) y elige «Ajustes».",
+        veras: "La página de Ajustes, con una lista a la izquierda en la que están «Personalización» y «Controles de datos». Las usarás en el módulo 1.",
+        atascado: "Para volver al chat, pulsa el icono de inicio (la casa) de la columna de iconos de la izquierda. No hace falta cambiar nada todavía.",
+        captura: cap("m0-ajustes.png", "Ajustes, con «Personalización» y «Controles de datos» señalados"),
       },
     ],
-    reto: "Localiza en la aplicación: nuevo chat, historial, Proyectos, Plugins, el selector ChatGPT/Codex y los ajustes.",
+    reto: "Localiza en la aplicación: nuevo chat, chats recientes, Proyectos, Complementos, el cambio entre ChatGPT y Codex y los ajustes.",
     fallos: [
       {
         problema: "La aplicación está en inglés.",
-        solucion: "Es normal: los nombres de los menús aparecen en inglés en estas recetas, con su traducción. Puedes escribir a ChatGPT en español igualmente.",
+        solucion: "Ajustes → General → «Idioma»: elige Español. Estas recetas usan los nombres de la aplicación en español.",
       },
     ],
-    compruebalo: ["Sabes señalar sin buscar: nuevo chat, Proyectos, Plugins y Ajustes.", "Sabes cuándo usar ChatGPT y cuándo Codex."],
+    compruebalo: ["Sabes señalar sin buscar: Nuevo chat, Proyectos, Complementos y Ajustes.", "Sabes cambiar entre ChatGPT y Codex."],
   },
   {
     id: "primer-resultado",
@@ -124,7 +123,7 @@ export const recetasModulo0: Receta[] = [
       {
         titulo: "Pégalo en ChatGPT",
         donde:
-          "En la aplicación, pulsa «New chat» y elige ChatGPT. Haz clic en el cuadro de texto, pega con Ctrl+V (Windows) o Cmd+V (Mac) y pulsa Intro.",
+          "En la aplicación, comprueba que arriba de la barra lateral pone «ChatGPT» y pulsa «Nuevo chat». Haz clic en el cuadro «Pregunta a ChatGPT», pega con Ctrl+V (Windows) o Cmd+V (Mac) y pulsa Intro.",
         veras: "En unos segundos, una tabla con criterios y cuatro niveles de logro.",
         captura: cap("m0-rubrica-resultado.png", "Respuesta de ChatGPT con la rúbrica en forma de tabla"),
       },
@@ -174,13 +173,13 @@ export const recetasModulo1: Receta[] = [
     pasos: [
       {
         titulo: "Abre la personalización",
-        donde: "Pulsa tu nombre (abajo a la izquierda) → «Settings» (Ajustes) → «Personalization» (Personalización).",
-        veras: "Opciones de estilo y tono y un apartado de instrucciones personalizadas («Custom instructions»).",
-        captura: cap("m1-personalizacion.png", "Ajustes → Personalization, con «Custom instructions» señalado"),
+        donde: "Círculo con tus iniciales (abajo a la izquierda) → «Ajustes» → «Personalización».",
+        veras: "Los apartados «Memoria de ChatGPT», «Memoria de Codex» y «Escritura». Las instrucciones personalizadas se abren desde el enlace «instrucciones personalizadas» del apartado «Resumen de memoria».",
+        captura: cap("m1-personalizacion.png", "Ventana de instrucciones personalizadas abierta desde Personalización"),
       },
       {
         titulo: "Activa la personalización si está desactivada",
-        donde: "Si ves un interruptor «Enable customization», actívalo.",
+        donde: "Si en la ventana de instrucciones ves un interruptor para activarlas, actívalo.",
         veras: "El interruptor en color y los campos de texto disponibles.",
       },
       {
@@ -192,7 +191,7 @@ export const recetasModulo1: Receta[] = [
       },
       {
         titulo: "Guarda los cambios",
-        donde: "Pulsa «Save» (Guardar) si aparece. En algunas versiones se guarda solo al cerrar.",
+        donde: "Pulsa «Guardar» si aparece. En algunas versiones se guarda solo al cerrar.",
         veras: "La ventana se cierra o aparece un aviso de guardado.",
       },
       {
@@ -206,7 +205,7 @@ export const recetasModulo1: Receta[] = [
     reto: "Configura las instrucciones personalizadas de ChatGPT con tu rol, tu ciclo y el estilo de respuesta, y comprueba que se aplican.",
     fallos: [
       { problema: "ChatGPT no tiene en cuenta mis instrucciones.", solucion: "Abre un chat nuevo: los cambios no se aplican a las conversaciones que ya estaban abiertas." },
-      { problema: "No encuentro «Personalization».", solucion: "Comprueba que estás en «Settings» de ChatGPT y no en los ajustes de Codex." },
+      { problema: "No encuentro las instrucciones personalizadas.", solucion: "Escribe «instrucciones» en el buscador que hay arriba de la lista de Ajustes." },
     ],
     compruebalo: ["Un chat nuevo responde teniendo en cuenta tu ciclo y el estilo pedido."],
   },
@@ -219,25 +218,33 @@ export const recetasModulo1: Receta[] = [
     pasos: [
       {
         titulo: "Desactiva el uso de tus chats para entrenar",
-        donde: "«Settings» (Ajustes) → «Data controls» (Controles de datos) → desactiva «Improve the model for everyone».",
+        donde: "Ajustes → «Controles de datos» → desactiva la opción de usar tu contenido para mejorar el modelo (en inglés, «Improve the model for everyone»).",
         veras: "El interruptor en gris (desactivado).",
         atascado: "Si usas una cuenta institucional, puede que ya venga desactivado y no lo puedas cambiar. Es correcto.",
-        captura: cap("m1-controles-datos.png", "Data controls con «Improve the model for everyone» desactivado"),
+        captura: cap("m1-controles-datos.png", "Controles de datos con la opción de mejorar el modelo desactivada"),
+      },
+      {
+        titulo: "Desactiva el acceso completo",
+        donde: "Ajustes → «General» → apartado «Permisos»: desactiva «Acceso completo». Deja activado «Permisos predeterminados».",
+        veras:
+          "Con el acceso completo, ChatGPT puede editar cualquier archivo de tu ordenador y ejecutar comandos con acceso a internet sin pedirte permiso. Desactivado, trabaja solo en su área y te pregunta antes de ir más allá.",
+        atascado: "Si más adelante una tarea de Codex necesita más acceso, te lo pedirá en ese momento. Es más seguro aprobarlo caso a caso.",
+        captura: cap("m1-acceso-completo.png", "Ajustes → General → Permisos, con «Acceso completo» señalado"),
       },
       {
         titulo: "Revisa la memoria",
-        donde: "«Settings» → «Personalization»: busca las opciones de memoria (Memory).",
+        donde: "Ajustes → «Personalización» → «Memoria de ChatGPT»: interruptor «Habilitar memoria». Con el botón «Gestionar» (en «Resumen de memoria») ves lo que ha aprendido de ti.",
         veras:
-          "Si la memoria está activada, ChatGPT recuerda datos de unas conversaciones para otras. Puedes desactivarla o revisar y borrar lo que ha guardado.",
+          "Si la memoria está activada, ChatGPT recuerda datos de unas conversaciones para otras. Puedes desactivarla o revisar y borrar lo que ha guardado. La memoria de Codex se controla aparte, justo debajo.",
         atascado: "Recomendación del curso: si la activas, revisa de vez en cuando lo guardado y borra cualquier dato de personas.",
-        captura: cap("m1-memoria.png", "Opciones de memoria dentro de Personalization"),
+        captura: cap("m1-memoria.png", "Personalización, con «Habilitar memoria» y «Gestionar» señalados"),
       },
       {
         titulo: "Conoce el chat temporal",
-        donde: "Al empezar un chat nuevo, busca la opción «Temporary chat» (chat temporal).",
+        donde: "Al empezar un chat nuevo, busca la opción de chat temporal (en inglés, «Temporary chat»).",
         veras:
           "Un chat temporal no aparece en el historial, no crea memorias y no se usa para entrenar. Úsalo para pruebas o temas delicados (aun así, nunca con datos personales sin anonimizar).",
-        captura: cap("m1-chat-temporal.png", "Botón o interruptor de «Temporary chat» al iniciar un chat"),
+        captura: cap("m1-chat-temporal.png", "Botón o interruptor de chat temporal al iniciar un chat"),
       },
       {
         titulo: "Pasa el semáforo de privacidad",
@@ -245,9 +252,9 @@ export const recetasModulo1: Receta[] = [
         veras: "Un resultado verde, ámbar o rojo con los motivos.",
       },
     ],
-    reto: "Desactiva el uso de tus chats para entrenar, decide qué hacer con la memoria y localiza el chat temporal.",
+    reto: "Desactiva el uso de tus chats para entrenar y el acceso completo, decide qué hacer con la memoria y localiza el chat temporal.",
     fallos: [{ problema: "No encuentro el chat temporal.", solucion: "Su ubicación cambia según la versión. Pregunta en el foro del curso o búscalo en la web chatgpt.com." }],
-    compruebalo: ["«Improve the model for everyone» está desactivado.", "Sabes si tu memoria está activada y cómo revisarla."],
+    compruebalo: ["El uso de tus chats para mejorar el modelo está desactivado.", "«Acceso completo» está desactivado.", "Sabes si tu memoria está activada y cómo revisarla."],
   },
   {
     id: "primer-plugin",
@@ -261,10 +268,10 @@ export const recetasModulo1: Receta[] = [
     ],
     pasos: [
       {
-        titulo: "Abre el catálogo de plugins",
-        donde: "Pulsa «Plugins» en la barra lateral.",
-        veras: "El catálogo, con pestañas como «OpenAI», la de tu espacio de trabajo y «Personal».",
-        captura: cap("m1-catalogo-plugins.png", "Catálogo de plugins con sus pestañas"),
+        titulo: "Abre el catálogo de complementos (plugins)",
+        donde: "Ajustes → Integraciones → «Complementos».",
+        veras: "El catálogo de complementos, con pestañas como la de OpenAI, la de tu espacio de trabajo y la personal.",
+        captura: cap("m1-catalogo-plugins.png", "Catálogo de complementos con sus pestañas"),
       },
       {
         titulo: "Busca Google Drive y ábrelo",
@@ -296,7 +303,7 @@ export const recetasModulo1: Receta[] = [
     ],
     reto: "Instala el plugin de Google Drive, conecta tu cuenta y pide a ChatGPT que resuma los documentos de una carpeta de pruebas.",
     fallos: [
-      { problema: "No aparece el plugin de Google Drive.", solucion: "Puede que tu plan o tu espacio de trabajo no lo permita. Prueba con otro plugin del catálogo o consulta al administrador de la cuenta del centro." },
+      { problema: "No aparece el complemento de Google Drive.", solucion: "Puede que tu plan o tu espacio de trabajo no lo permita. Prueba con otro plugin del catálogo o consulta al administrador de la cuenta del centro." },
       { problema: "Dice que no encuentra la carpeta.", solucion: "Escribe el nombre exacto de la carpeta, con las mayúsculas y el guion, y comprueba que está en tu unidad y no en una compartida." },
     ],
     compruebalo: ["El plugin aparece como instalado.", "ChatGPT ha leído los documentos de tu carpeta de pruebas."],

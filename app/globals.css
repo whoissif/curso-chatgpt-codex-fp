@@ -260,7 +260,7 @@ th { font-size: 0.85rem; color: var(--suave); text-transform: uppercase; letter-
 .etq { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 6px; margin-right: 4px; }
 .etq-donde { background: var(--acento-suave); color: var(--acento); }
 .etq-veras { background: var(--ok-suave); color: var(--ok); }
-.captura { display: block; max-width: 100%; height: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 8px 0; }
+.captura { display: block; max-width: 100%; max-height: 520px; width: auto; height: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 8px 0; }
 .captura-pendiente { margin: 8px 0; padding: 10px 12px; border: 2px dashed var(--borde); border-radius: 8px; color: var(--suave); font-size: 0.9rem; }
 .atascado, .fallos { margin: 8px 0 0; }
 .atascado summary, .fallos summary { cursor: pointer; font-weight: 600; color: var(--curso); }

@@ -1,45 +1,39 @@
 # Capturas pendientes (piloto: módulos 0 y 1)
 
-Guarda cada captura en `public/capturas/` con el nombre exacto de la tabla (en PNG). En cuanto un archivo existe, la web lo muestra en su paso en lugar del recuadro «Captura pendiente».
+Pon las capturas en la carpeta `Capturas/` del proyecto (no se sube a GitHub), numeradas en el orden de esta lista. Yo las renombro, recorto, difumino los datos personales y señalo lo importante. Las versiones finales van a `public/capturas/`.
 
-Consejos:
-- Haz las capturas con la aplicación de escritorio y la ventana a tamaño normal (no a pantalla completa).
-- Windows: tecla Windows + Mayús + S. Mac: Cmd + Mayús + 4.
-- Usa una cuenta y documentos de prueba: que no salgan nombres de alumnado, correos ni conversaciones privadas.
-- No hace falta señalar nada: envíame las capturas y yo las recorto y marco.
+Windows: tecla Windows + Mayús + S. Mac: Cmd + Mayús + 4.
 
-## Módulo 0 · Presentación y primeros pasos
+## Ya colocadas (7)
 
-| Archivo | Qué debe verse |
+| Archivo | Qué se ve |
 |---|---|
-| m0-descarga.png | Ficha de ChatGPT en la Microsoft Store, o página de descarga para Mac |
-| m0-ventana-principal.png | Ventana principal de la app tras iniciar sesión |
-| m0-barra-lateral.png | Barra lateral con «New chat» y el historial |
-| m0-proyectos-plugins.png | Barra lateral con «Projects» y «Plugins» |
-| m0-chatgpt-o-codex.png | Selector para elegir ChatGPT o Codex al iniciar un chat |
-| m0-ajustes.png | Ventana de ajustes con «Personalization» y «Data controls» visibles |
-| m0-rubrica-resultado.png | Respuesta de ChatGPT con la rúbrica en forma de tabla |
+| m0-descarga.png | Microsoft Store instalando ChatGPT |
+| m0-ventana-principal.png | Ventana principal con «Nuevo chat» y «Pregunta a ChatGPT» |
+| m0-barra-lateral.png | Barra lateral: «ChatGPT ▾», «Nuevo chat» y tus iniciales |
+| m0-chatgpt-o-codex.png | Barra lateral en modo Codex |
+| m0-ajustes.png | Ajustes con «Personalización» y «Controles de datos» |
+| m1-acceso-completo.png | Ajustes → General → Permisos |
+| m1-memoria.png | Personalización: «Habilitar memoria» y «Gestionar» |
 
-## Módulo 1 · Ajustes iniciales
+## Pendientes (9)
 
-| Archivo | Qué debe verse |
-|---|---|
-| m1-personalizacion.png | Ajustes → Personalization, con «Custom instructions» |
-| m1-prueba-instrucciones.png | Respuesta de ChatGPT que menciona el ciclo y el estilo |
-| m1-controles-datos.png | Data controls con «Improve the model for everyone» desactivado |
-| m1-memoria.png | Opciones de memoria dentro de Personalization |
-| m1-chat-temporal.png | Botón o interruptor de «Temporary chat» al iniciar un chat |
-| m1-catalogo-plugins.png | Catálogo de plugins con sus pestañas |
-| m1-instalar-drive.png | Ficha del plugin de Google Drive con el botón «+» |
-| m1-permisos-google.png | Ventana de Google pidiendo permisos para ChatGPT |
-| m1-prueba-drive.png | Respuesta con la lista de documentos de la carpeta de pruebas |
+| Nº | Archivo | Qué debe verse |
+|---|---|---|
+| 7 | m0-rubrica-resultado.png | Una rúbrica hecha por ChatGPT con un prompt del generador de la web |
+| 8 | m1-personalizacion.png | La ventana de instrucciones personalizadas (desde Personalización → enlace «instrucciones personalizadas», o buscando «instrucciones» en Ajustes) |
+| 9 | m1-prueba-instrucciones.png | La respuesta a «¿Qué sabes de mí y de cómo quiero que me respondas?» |
+| 10 | m1-controles-datos.png | Ajustes → Controles de datos, con la opción de mejorar el modelo |
+| 11 | m1-chat-temporal.png | El botón o interruptor de chat temporal |
+| 12 | m1-catalogo-plugins.png | El catálogo de Complementos (Ajustes → Integraciones → Complementos) |
+| 13 | m1-instalar-drive.png | La ficha del complemento de Google Drive con su botón para instalar |
+| 14 | m1-permisos-google.png | La ventana de Google pidiendo permisos |
+| 15 | m1-prueba-drive.png | La respuesta de ChatGPT con los documentos de tu carpeta de prueba |
 
-## Rutas que conviene comprobar mientras haces las capturas
+## Preguntas que resuelven estas capturas
 
-No aparecen en la documentación oficial; las recetas las describen con prudencia. Si en tu aplicación son distintas, dímelo y las corrijo.
-
-1. **Chat temporal** (m1-chat-temporal): dónde está exactamente el botón.
-2. **Memoria** (m1-memoria): si está en Personalization o en otra sección.
-3. **Instrucciones personalizadas**: si hay botón «Save» o se guardan solas.
-4. **Google Drive**: si el plugin se llama así en el catálogo y cómo es la ventana de permisos.
-5. **Ajustes**: si se abren pulsando tu nombre abajo a la izquierda.
+1. **¿Cómo se abren los Ajustes?** Las recetas dicen: círculo con tus iniciales (abajo a la izquierda) → «Ajustes».
+2. **¿«Complementos» es el catálogo de plugins?** ¿O hay también un icono en la columna de iconos de la izquierda?
+3. **¿Dónde están las instrucciones personalizadas?** ¿Y tienen botón «Guardar»?
+4. **¿Dónde está el chat temporal?**
+5. **¿Qué es el selector «Chat | Work» de arriba?** Las recetas dicen que lo dejes en «Chat» hasta el módulo 4.
