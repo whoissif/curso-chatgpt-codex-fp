@@ -1,6 +1,6 @@
-# ChatGPT y Codex para FP de Ciencias Sociales
+# ChatGPT y Codex para FP de Grado Superior
 
-Web del curso online «ChatGPT y Codex para la coordinación académica y la docencia en FP de Grado Superior (Ciencias Sociales)».
+Web del curso online «ChatGPT y Codex para la coordinación académica y la docencia en FP de Grado Superior», para las familias de Servicios Socioculturales y a la Comunidad, Administración y Gestión, y Comercio y Marketing.
 
 - 8 módulos con contenidos, ejercicios paso a paso, prompts copiables y entregables.
 - Seguimiento del progreso por módulo (se guarda en el navegador de cada participante).

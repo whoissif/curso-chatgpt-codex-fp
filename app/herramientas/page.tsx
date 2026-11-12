@@ -9,7 +9,7 @@ export default function Herramientas() {
     <>
       <h1 className="titulo-pag">Herramientas del curso</h1>
       <TablaFiltrable titulo="Herramientas base" filas={herramientasBase} />
-      <TablaFiltrable titulo="Conectores y plugins aplicados a FP de Ciencias Sociales" filas={conectoresPlugins} />
+      <TablaFiltrable titulo="Conectores y plugins aplicados a FP" filas={conectoresPlugins} />
     </>
   );
 }

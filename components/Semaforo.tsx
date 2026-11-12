@@ -11,7 +11,7 @@ const preguntas: Pregunta[] = [
     opciones: [
       { v: "ninguno", t: "Ningún dato personal: normativa, programaciones, materiales propios" },
       { v: "personales", t: "Datos de personas identificables: alumnado, familias, profesorado, empresas" },
-      { v: "especiales", t: "Datos sensibles: salud, discapacidad, situación social o familiar, origen, violencia de género…" },
+      { v: "especiales", t: "Datos sensibles: salud, discapacidad, origen étnico, religión, vida sexual; también situación familiar, económica o violencia de género" },
     ],
   },
   {
@@ -74,7 +74,7 @@ function evaluar(r: Record<string, string>): { nivel: Nivel; motivos: string[] }
 
   if (r.datos === "especiales" && r.anonimo !== "anonimos") {
     subir("rojo");
-    motivos.push("Son datos de categorías especiales (art. 9 RGPD). No los introduzcas en un asistente de IA sin anonimizar.");
+    motivos.push("Son datos de categorías especiales (art. 9 RGPD) o de especial sensibilidad. No los introduzcas en un asistente de IA sin anonimizar.");
   }
   if (datosReales && r.cuenta === "personal") {
     subir("rojo");

@@ -1,15 +1,15 @@
 export const curso = {
   titulo: "ChatGPT y Codex para la coordinación académica y la docencia en FP",
-  subtitulo: "FP de Grado Superior · Ciencias Sociales",
+  subtitulo: "FP de Grado Superior · Servicios Socioculturales, Administración y Comercio",
   datos: [
     { k: "Modalidad", v: "Online (síncrono + asíncrono), con sesiones prácticas guiadas y trabajo autónomo entre sesiones." },
     { k: "Duración", v: "20–25 horas: 6 sesiones síncronas de 2 h + 8–10 h de práctica autónoma + proyecto final." },
-    { k: "Destinatarios", v: "Coordinación académica, jefaturas de departamento y profesorado de FP de Grado Superior de Ciencias Sociales." },
+    { k: "Destinatarios", v: "Coordinación académica, jefaturas de departamento y profesorado de FP de Grado Superior de las familias de Servicios Socioculturales y a la Comunidad, Administración y Gestión, y Comercio y Marketing." },
     { k: "Requisitos", v: "Cuenta de ChatGPT (preferiblemente de pago para Codex y plugins). Navegador actualizado. Sin conocimientos de programación." },
     { k: "Enfoque", v: "Aprendizaje basado en tareas. Cada módulo produce un entregable usable en coordinación o aula." },
   ],
   objetivoGeneral:
-    "Integrar ChatGPT y Codex en los flujos de docencia y coordinación mediante ajustes seguros, selección de modelos, proyectos, skills, plugins/conectores y agentes, con ejercicios aplicados a Ciencias Sociales.",
+    "Integrar ChatGPT y Codex en los flujos de docencia y coordinación mediante ajustes seguros, selección de modelos, proyectos, skills, plugins/conectores y agentes, con ejercicios aplicados a los ciclos de servicios socioculturales, administración y comercio.",
   objetivosEspecificos: [
     "Configurar preferencias y parámetros de ChatGPT y Codex.",
     "Elegir modelo (GPT-5, razonamiento, Codex) según la tarea.",
@@ -78,7 +78,7 @@ export const modulos: Modulo[] = [
       {
         titulo: "Instrucción personalizada",
         texto:
-          "Actúa como asistente de coordinación académica de FP de Grado Superior en Ciencias Sociales. Usa lenguaje técnico pero accesible, cita normativa cuando corresponda y evita inventar datos.",
+          "Actúa como asistente de coordinación académica de FP de Grado Superior en [tu familia profesional y ciclo]. Usa lenguaje técnico pero accesible, cita normativa cuando corresponda y evita inventar datos.",
       },
       {
         titulo: "Fragmento de ~/.codex/config.toml (orientativo)",
@@ -113,7 +113,7 @@ export const modulos: Modulo[] = [
     objetivo: "Usar Proyectos y, si procede, un conector para centralizar materiales sin subirlos a mano.",
     contenidos: [
       "Qué es un Proyecto: chats + archivos + instrucciones + memoria.",
-      "Creación del proyecto «Coordinación – Ciencias Sociales».",
+      "Creación del proyecto «Coordinación – [tu departamento]».",
       "Conectores en Proyectos: si el centro usa Google Drive o SharePoint, conectar la carpeta de coordinación para leer directamente de allí y no duplicar archivos.",
       "Instrucciones de proyecto y límites.",
       "Optimización: convertir el proyecto en «kit de coordinación» o «kit de estudio».",
@@ -143,7 +143,7 @@ export const modulos: Modulo[] = [
       "Skill: instrucciones, ejemplos y criterios de verificación.",
       "Plugin: cómo agrupa skills + conectores + servidores MCP en un paquete instalable y compartible.",
       "Conector dentro del plugin: p. ej., el plugin «Revisor de programaciones» puede incluir la skill y un conector a la carpeta de Drive con las programaciones.",
-      "Aplicaciones: rúbricas, lectura fácil, revisión normativa, simulación de entrevistas.",
+      "Aplicaciones: rúbricas, lectura fácil, revisión normativa, simulación de entrevistas, corrección de supuestos contables o de planes de marketing.",
     ],
     ejercicioTitulo: "Ejercicio",
     pasos: [
@@ -188,7 +188,7 @@ export const modulos: Modulo[] = [
     ],
     ejercicioTitulo: "Ejercicio (itinerario A o B)",
     pasos: [
-      "Itinerario A (GPT): crea el «Simulador de entrevista de intervención social» y, opcionalmente, conéctalo a una carpeta de Drive con casos reales anonimizados.",
+      "Itinerario A (GPT): crea un «Simulador de entrevista» (intervención social, atención al cliente, negociación comercial o selección de personal) y, opcionalmente, conéctalo a una carpeta de Drive con casos anonimizados.",
       "Itinerario B (agente Codex + plugin/conector): crea un agente que, con un plugin conectado a una carpeta de actas (Drive/SharePoint) o a Slack, genere un resumen ejecutivo y una tabla de acuerdos y responsables.",
     ],
     entregable: "Enlace o captura del GPT o informe del agente + descripción del plugin/conector usado y de sus restricciones.",
@@ -240,7 +240,7 @@ export const conectoresPlugins = [
   { n: "Plugin «Revisor de programaciones»", q: "Skill + conector a Drive", u: "Comprobar la coherencia normativa de programaciones", m: "4" },
   { n: "Plugin «Generador de rúbricas»", q: "Skill empaquetada", u: "Crear rúbricas por competencias listas para el aula virtual", m: "4" },
   { n: "Plugin de actas y acuerdos", q: "Conector a carpeta + skill de resumen", u: "Extraer acuerdos, responsables y plazos de actas de departamento", m: "6" },
-  { n: "Plugin «Simulador de entrevista»", q: "Skill + base de conocimiento", u: "Entrenar entrevistas de intervención social con feedback", m: "6" },
+  { n: "Plugin «Simulador de entrevista»", q: "Skill + base de conocimiento", u: "Entrenar entrevistas de intervención social, atención al cliente o negociación comercial con feedback", m: "6" },
 ];
 
 export const glosario = [
@@ -267,12 +267,12 @@ export const glosario = [
   {
     t: "Proyecto",
     d: "Espacio de ChatGPT que reúne chats, archivos, instrucciones y memoria sobre un mismo tema.",
-    e: "«Coordinación – Ciencias Sociales».",
+    e: "«Coordinación – Departamento de Comercio y Marketing».",
   },
   {
     t: "GPT personalizado",
     d: "Versión de ChatGPT con instrucciones, base de conocimiento y conversation starters propios.",
-    e: "«Simulador de entrevista de intervención social».",
+    e: "«Simulador de negociación con un cliente internacional».",
   },
   {
     t: "AGENTS.md",
@@ -287,7 +287,7 @@ export const glosario = [
 ];
 
 export const evaluacion = [
-  { i: "Ejercicios 1–5", p: 40, c: "Completitud, pertinencia a FP Sociales, reflexión." },
+  { i: "Ejercicios 1–5", p: 40, c: "Completitud, pertinencia al ciclo, reflexión." },
   { i: "Ejercicio 6 (agente + plugin/conector)", p: 20, c: "Claridad de instrucciones, alcance, utilidad, revisión crítica." },
   { i: "Proyecto final", p: 30, c: "Coherencia del kit, aplicabilidad, rigor normativo, ética." },
   { i: "Participación y coevaluación", p: 10, c: "Aportaciones y retroalimentación." },

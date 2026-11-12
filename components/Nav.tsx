@@ -18,7 +18,7 @@ export default function Nav() {
   return (
     <header className="cabecera">
       <div className="contenedor cabecera-in">
-        <Link href="/" className="marca">IA · FP Sociales</Link>
+        <Link href="/" className="marca">IA · FP</Link>
         <nav aria-label="Principal">
           {links.map((l) => {
             const activo = l.href === "/" ? p === "/" : p.startsWith(l.href);
