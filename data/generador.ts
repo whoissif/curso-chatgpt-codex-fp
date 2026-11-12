@@ -1,18 +1,38 @@
 export const roles = [
   "Coordinación académica de un centro de FP",
-  "Jefatura de departamento de Servicios Socioculturales y a la Comunidad",
+  "Jefatura de departamento",
   "Docente de un módulo profesional",
   "Tutor/a de formación en empresa",
 ];
 
-export const ciclos = [
-  "Integración Social",
-  "Educación Infantil",
-  "Animación Sociocultural y Turística",
-  "Mediación Comunicativa",
-  "Promoción de Igualdad de Género",
-  "Otro ciclo de Ciencias Sociales",
+export const familias = [
+  {
+    familia: "Servicios Socioculturales y a la Comunidad",
+    ciclos: [
+      "Integración Social",
+      "Educación Infantil",
+      "Animación Sociocultural y Turística",
+      "Mediación Comunicativa",
+      "Promoción de Igualdad de Género",
+    ],
+  },
+  {
+    familia: "Administración y Gestión",
+    ciclos: ["Administración y Finanzas", "Asistencia a la Dirección"],
+  },
+  {
+    familia: "Comercio y Marketing",
+    ciclos: [
+      "Marketing y Publicidad",
+      "Comercio Internacional",
+      "Gestión de Ventas y Espacios Comerciales",
+      "Transporte y Logística",
+    ],
+  },
+  { familia: "Otros", ciclos: ["Otro ciclo de Grado Superior"] },
 ];
+
+export const ciclos = familias.flatMap((f) => f.ciclos);
 
 export type Plantilla = {
   id: string;
@@ -73,7 +93,7 @@ export const plantillas: Plantilla[] = [
       "Diseña un caso práctico ficticio y realista para trabajar en clase los resultados de aprendizaje indicados.",
     formato:
       "Descripción del caso (máx. 300 palabras), 4–6 preguntas o tareas para el alumnado y una guía de corrección para el docente.",
-    pistaContexto: "Perfil del servicio o recurso (p. ej., centro de día, escuela infantil, asociación) y resultados de aprendizaje.",
+    pistaContexto: "Tipo de empresa o servicio (p. ej., centro de día, escuela infantil, pyme exportadora, agencia de marketing, departamento financiero) y resultados de aprendizaje.",
   },
   {
     id: "comunicacion",

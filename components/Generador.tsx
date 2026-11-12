@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import { roles, ciclos, plantillas, restricciones, herramientas } from "@/data/generador";
+import { roles, ciclos, familias, plantillas, restricciones, herramientas } from "@/data/generador";
 
 export default function Generador() {
   const [rol, setRol] = useState(roles[2]);
@@ -72,7 +72,11 @@ export default function Generador() {
           <div className="campo">
             <label htmlFor="ciclo">Ciclo</label>
             <select id="ciclo" value={ciclo} onChange={(e) => setCiclo(e.target.value)}>
-              {ciclos.map((x) => <option key={x}>{x}</option>)}
+              {familias.map((f) => (
+                <optgroup key={f.familia} label={f.familia}>
+                  {f.ciclos.map((x) => <option key={x}>{x}</option>)}
+                </optgroup>
+              ))}
             </select>
           </div>
         </div>
